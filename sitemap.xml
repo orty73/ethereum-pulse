@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://ethereum-pulse.com/</loc>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://ethereum-pulse.com/about.html</loc>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://ethereum-pulse.com/privacy.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.2</priority>
+    <lastmod>2026-01-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://ethereum-pulse.com/contact.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.2</priority>
+    <lastmod>2026-01-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
+
 </urlset>
