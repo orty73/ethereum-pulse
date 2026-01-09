@@ -2,57 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Ethereum Gas Fees – How Transaction Fees Work</title>
-
-  <meta name="description" content="Ethereum gas fees explained. Learn what gas fees are, why they change, and how transaction costs work on the Ethereum network.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://ethereum-pulse.com/ethereum-gas-fees.html">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ethereum Gas Fees Explained – What Gas Is & How Fees Work | Ethereum Pulse</title>
+  <meta name="description" content="Learn Ethereum gas fees in simple terms: what gas is, why fees change, base fee vs priority fee, and how to pay less with practical tips.">
+  <link rel="canonical" href="https://ethereum-pulse.com/ethereum-gas-fees.html">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ethereum Pulse">
+  <meta property="og:title" content="Ethereum Gas Fees Explained – What Gas Is & How Fees Work">
+  <meta property="og:description" content="A simple guide to Ethereum gas fees: base fee, priority fee, and how to reduce costs.">
+  <meta property="og:url" content="https://ethereum-pulse.com/ethereum-gas-fees.html">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ethereum Gas Fees Explained – What Gas Is & How Fees Work">
+  <meta name="twitter:description" content="A simple guide to Ethereum gas fees: base fee, priority fee, and how to reduce costs.">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Schema: WebPage + Breadcrumb + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://ethereum-pulse.com/ethereum-gas-fees.html#webpage",
+    "url": "https://ethereum-pulse.com/ethereum-gas-fees.html",
+    "name": "Ethereum Gas Fees Explained",
+    "description": "Learn Ethereum gas fees in simple terms: what gas is, why fees change, base fee vs priority fee, and how to pay less.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://ethereum-pulse.com/#website"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ethereum-pulse.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Gas Fees", "item": "https://ethereum-pulse.com/ethereum-gas-fees.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are Ethereum gas fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gas fees are transaction costs paid to use the Ethereum network. You pay gas to send ETH, swap tokens, mint NFTs, or interact with smart contracts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do gas fees change?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fees rise when the network is busy and block space is in high demand, and fall when demand decreases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I reduce gas fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use off-peak hours, choose an appropriate fee, batch actions when possible, and consider Layer 2 networks for cheaper transactions."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
-<main>
-  <h1>Ethereum Gas Fees</h1>
+  <main>
+    <header>
+      <h1>Ethereum Gas Fees Explained</h1>
+      <p>
+        A simple guide to gas fees: what gas is, why fees change, and how to pay less.
+        For live network stats, open <a href="/">Ethereum Pulse</a>.
+      </p>
+    </header>
 
-  <p>
-    Ethereum gas fees are the costs required to process transactions
-    and execute smart contracts on the Ethereum network.
-  </p>
+    <section>
+      <h2>What is “gas” on Ethereum?</h2>
+      <p>
+        Gas is the unit that measures the computational work required to process actions on Ethereum.
+        Simple transfers use little gas, while complex smart contract interactions use more.
+      </p>
+    </section>
 
-  <h2>What Are Ethereum Gas Fees?</h2>
-  <p>
-    Gas fees are payments made by users to compensate validators
-    for securing the network and processing transactions.
-  </p>
+    <section>
+      <h2>Why do gas fees go up and down?</h2>
+      <p>
+        Fees are mainly driven by demand for block space. When many users compete to get included in blocks,
+        fees increase. When activity is lower, fees drop.
+      </p>
+    </section>
 
-  <h2>Why Do Gas Fees Change?</h2>
-  <p>
-    Gas fees increase when the Ethereum network is congested.
-    When many users compete for block space, transaction costs rise.
-  </p>
+    <section>
+      <h2>Base fee vs priority fee (simple version)</h2>
+      <ul>
+        <li><strong>Base fee</strong>: adjusts with network demand and is required.</li>
+        <li><strong>Priority fee (tip)</strong>: extra incentive for validators to include your transaction faster.</li>
+        <li><strong>Total fee</strong>: roughly base fee + priority fee × gas used.</li>
+      </ul>
+    </section>
 
-  <h2>Gas Fees and Ethereum Usage</h2>
-  <p>
-    High network activity often leads to higher gas fees.
-    Understanding gas fees helps users optimize transaction timing and costs.
-  </p>
+    <section>
+      <h2>How to pay less gas (practical tips)</h2>
+      <ul>
+        <li>Try <strong>off-peak times</strong> when the network is less busy.</li>
+        <li>Avoid urgent transactions if you can wait for lower fees.</li>
+        <li>Use <strong>Layer 2</strong> networks when possible for cheaper execution.</li>
+        <li>Batch actions (e.g., approvals) when your wallet/app supports it.</li>
+      </ul>
+    </section>
 
-  <p>
-    Check the
-    <a href="/ethereum-price.html">live Ethereum price</a>
-    or return to the
-    <a href="/">Ethereum Pulse homepage</a>.
-  </p>
+    <section class="internal-links">
+      <h2>Related pages</h2>
+      <ul>
+        <li><a href="/ethereum-price.html">Ethereum Price (ETH) Live</a> – track ETH price and context.</li>
+        <li><a href="/what-is-ethereum.html">What is Ethereum?</a> – basics explained for beginners.</li>
+      </ul>
+    </section>
 
-  <footer class="footer">
-    <a href="/">Home</a> ·
-    <a href="/ethereum-price.html">ETH Price</a> ·
-    <a href="/what-is-ethereum.html">What Is Ethereum</a> ·
-    <a href="/about.html">About</a> ·
-    <a href="/privacy.html">Privacy</a> ·
-    <a href="/contact.html">Contact</a>
-  </footer>
-</main>
+    <section class="faq">
+      <h2>FAQ</h2>
+
+      <h3>What are Ethereum gas fees?</h3>
+      <p>Gas fees are transaction costs paid to use Ethereum (send ETH, swap tokens, interact with contracts).</p>
+
+      <h3>Why do gas fees change?</h3>
+      <p>Fees rise when the network is busy (high demand for block space) and fall when demand decreases.</p>
+
+      <h3>How can I reduce gas fees?</h3>
+      <p>Use off-peak hours, avoid urgency, and use Layer 2 networks for cheaper transactions.</p>
+    </section>
+
+    <hr>
+
+    <p class="disclaimer">
+      Disclaimer: Content is for informational purposes only and does not constitute financial advice.
+      Crypto assets are volatile. Always do your own research.
+    </p>
+
+    <footer class="footer">
+      <a href="/about.html">About</a>
+      <span>·</span>
+      <a href="/privacy.html">Privacy</a>
+      <span>·</span>
+      <a href="/contact.html">Contact</a>
+      <span>·</span>
+      <a href="/">Home</a>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
