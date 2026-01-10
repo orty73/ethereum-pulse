@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Ethereum Price (ETH) Live – USD, EUR, BTC | Ethereum Pulse</title>
-  <meta name="description" content="Check the live Ethereum (ETH) price with a clean, fast dashboard. Track ETH in USD/EUR/BTC, understand what moves the price, and get simple market context.">
+  <meta name="description" content="Check the live Ethereum (ETH) price with a clean, fast dashboard. Track ETH in USD/EUR/BTC and understand what moves the price.">
   <link rel="canonical" href="https://ethereum-pulse.com/ethereum-price.html">
   <meta name="robots" content="index, follow">
 
@@ -23,71 +23,77 @@
 
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Schema: WebPage + Breadcrumb + FAQ -->
+  <!-- Schema: WebSite + Organization + Article -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://ethereum-pulse.com/ethereum-price.html#webpage",
-    "url": "https://ethereum-pulse.com/ethereum-price.html",
-    "name": "Ethereum Price (ETH) Live – USD, EUR, BTC",
-    "description": "Check the live Ethereum (ETH) price with a clean, fast dashboard. Track ETH in USD/EUR/BTC and understand what moves the price.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://ethereum-pulse.com/#website"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://ethereum-pulse.com/"
+        "@type": "WebSite",
+        "@id": "https://ethereum-pulse.com/#website",
+        "name": "Ethereum Pulse",
+        "url": "https://ethereum-pulse.com/"
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Ethereum Price",
-        "item": "https://ethereum-pulse.com/ethereum-price.html"
-      }
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the Ethereum (ETH) price?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The Ethereum price is the market value of 1 ETH, usually quoted in USD, EUR, or BTC. It changes continuously based on supply, demand, and market conditions."
-        }
+        "@type": "Organization",
+        "@id": "https://ethereum-pulse.com/#organization",
+        "name": "Ethereum Pulse",
+        "url": "https://ethereum-pulse.com/"
       },
       {
-        "@type": "Question",
-        "name": "Why does the ETH price move so much?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ETH can be volatile because crypto markets trade 24/7 and react quickly to liquidity, macro news, protocol upgrades, risk sentiment, and changes in on-chain activity."
-        }
+        "@type": "WebPage",
+        "@id": "https://ethereum-pulse.com/ethereum-price.html#webpage",
+        "url": "https://ethereum-pulse.com/ethereum-price.html",
+        "name": "Ethereum Price (ETH) Live – USD, EUR, BTC",
+        "description": "Check the live Ethereum (ETH) price with a clean, fast dashboard. Track ETH in USD/EUR/BTC and understand what moves the price.",
+        "isPartOf": { "@id": "https://ethereum-pulse.com/#website" }
       },
       {
-        "@type": "Question",
-        "name": "Is ETH price the same everywhere?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Prices are usually very close across major exchanges, but small differences can appear due to fees, local demand, and liquidity."
-        }
+        "@type": "Article",
+        "@id": "https://ethereum-pulse.com/ethereum-price.html#article",
+        "headline": "Ethereum Price (ETH) Live – USD, EUR, BTC",
+        "description": "Check the live Ethereum (ETH) price with a clean, fast dashboard. Track ETH in USD/EUR/BTC and understand what moves the price.",
+        "mainEntityOfPage": { "@id": "https://ethereum-pulse.com/ethereum-price.html#webpage" },
+        "publisher": { "@id": "https://ethereum-pulse.com/#organization" },
+        "author": { "@id": "https://ethereum-pulse.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ethereum-pulse.com/ethereum-price.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ethereum-pulse.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Ethereum Price", "item": "https://ethereum-pulse.com/ethereum-price.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ethereum-pulse.com/ethereum-price.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Ethereum (ETH) price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Ethereum price is the market value of 1 ETH, often quoted in USD, EUR, or BTC. It changes continuously based on supply, demand, and market conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does the ETH price move so much?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ETH can be volatile because crypto markets trade 24/7 and react quickly to liquidity, macro news, protocol upgrades, risk sentiment, and changes in on-chain activity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ETH price the same everywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Prices are usually very close across major exchanges, but small differences can appear due to fees, local demand, and liquidity."
+            }
+          }
+        ]
       }
     ]
   }
@@ -96,50 +102,55 @@
 
 <body>
   <main>
+    <nav class="mini-nav">
+      <a href="/">Home</a> ·
+      <a href="/ethereum-price.html">ETH Price</a> ·
+      <a href="/ethereum-gas-fees.html">Gas Fees</a> ·
+      <a href="/what-is-ethereum.html">What is Ethereum</a>
+    </nav>
+
     <header>
       <h1>Ethereum Price (ETH) Live</h1>
       <p>
-        A clean page to track the <strong>live Ethereum price</strong> and understand what moves ETH.
-        For the full dashboard, go back to <a href="/">Ethereum Pulse</a>.
+        Track the <strong>live Ethereum price</strong> with a clean, beginner-friendly layout.
+        For the main dashboard experience, visit <a href="/">Ethereum Pulse</a>.
       </p>
     </header>
 
     <section>
-      <h2>Live ETH price</h2>
+      <h2>Live ETH price (USD / EUR / BTC)</h2>
       <p>
-        The live price module is displayed on the main dashboard. If you don’t see it here yet,
-        open <a href="/">the homepage</a> and ensure your <code>app.js</code> is loading correctly.
+        This page focuses on clear explanations and SEO. Live widgets can be displayed on the homepage.
+        If you want, we’ll add a small live price module here later too.
       </p>
-
       <ul>
-        <li><strong>ETH / USD</strong> – the most common quote currency</li>
+        <li><strong>ETH / USD</strong> – most common reference</li>
         <li><strong>ETH / EUR</strong> – helpful for EU users</li>
-        <li><strong>ETH / BTC</strong> – ETH’s relative strength vs Bitcoin</li>
+        <li><strong>ETH / BTC</strong> – Ethereum strength vs Bitcoin</li>
       </ul>
     </section>
 
     <section>
       <h2>What drives the Ethereum price?</h2>
       <ul>
-        <li><strong>Market demand</strong>: investors, traders, and long-term holders.</li>
-        <li><strong>Network usage</strong>: DeFi, NFTs, L2 activity, and on-chain volume.</li>
+        <li><strong>Supply & demand</strong>: buyers vs sellers across global exchanges.</li>
+        <li><strong>Network activity</strong>: demand for block space and smart contract usage.</li>
         <li><strong>Fees & burn</strong>: higher usage can increase fees; part of fees are burned.</li>
-        <li><strong>Macro environment</strong>: interest rates, risk appetite, USD strength.</li>
-        <li><strong>Upgrades & news</strong>: protocol changes, ETF narratives, regulation.</li>
+        <li><strong>Macro environment</strong>: risk appetite, interest rates, USD liquidity.</li>
+        <li><strong>Upgrades & news</strong>: protocol changes, adoption, regulation narratives.</li>
       </ul>
     </section>
 
     <section class="internal-links">
       <h2>Related guides</h2>
       <ul>
-        <li><a href="/ethereum-gas-fees.html">Ethereum Gas Fees Explained</a> – why fees rise and fall.</li>
-        <li><a href="/what-is-ethereum.html">What is Ethereum?</a> – simple explanation for beginners.</li>
+        <li><a href="/ethereum-gas-fees.html">Ethereum Gas Fees Explained</a> – why transaction costs change.</li>
+        <li><a href="/what-is-ethereum.html">What is Ethereum?</a> – a simple beginner guide.</li>
       </ul>
     </section>
 
     <section class="faq">
       <h2>FAQ</h2>
-
       <h3>What is the Ethereum (ETH) price?</h3>
       <p>The Ethereum price is the market value of 1 ETH in a currency like USD, EUR, or BTC.</p>
 
