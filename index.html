@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Ethereum Pulse – Live ETH Price, Gas Fees & Network Activity</title>
   <meta name="description" content="Ethereum Pulse provides a clean and simple view of Ethereum: live ETH price, gas fees, network activity, and key on-chain data. Designed for everyone.">
   <link rel="canonical" href="https://ethereum-pulse.com/">
-
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
@@ -17,15 +15,11 @@
   <meta property="og:title" content="Ethereum Pulse – Live ETH Price, Gas Fees & Network Activity">
   <meta property="og:description" content="Track Ethereum live price, gas fees, and network activity with a clean and simple interface.">
   <meta property="og:url" content="https://ethereum-pulse.com/">
-  <!-- Optional (recommended): add your image file when you have it -->
-  <!-- <meta property="og:image" content="https://ethereum-pulse.com/og-image.png"> -->
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Ethereum Pulse – Live ETH Price, Gas Fees & Network Activity">
   <meta name="twitter:description" content="Track Ethereum live price, gas fees, and network activity with a clean and simple interface.">
-  <!-- Optional (recommended): add your image file when you have it -->
-  <!-- <meta name="twitter:image" content="https://ethereum-pulse.com/og-image.png"> -->
 
   <link rel="stylesheet" href="styles.css">
 
@@ -37,16 +31,11 @@
     "@id": "https://ethereum-pulse.com/#website",
     "name": "Ethereum Pulse",
     "url": "https://ethereum-pulse.com/",
-    "description": "Ethereum Pulse provides a clean and simple view of Ethereum: live ETH price, gas fees, and network activity.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Ethereum Pulse",
-      "url": "https://ethereum-pulse.com/"
-    }
+    "description": "Ethereum Pulse provides a clean and simple view of Ethereum: live ETH price, gas fees, and network activity."
   }
   </script>
 
-  <!-- Schema.org: FAQPage (keep in HEAD for clean SEO parsing) -->
+  <!-- Schema.org: FAQ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,7 +46,7 @@
         "name": "What is Ethereum Pulse?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ethereum Pulse is a minimalist website providing essential Ethereum data such as live ETH price, gas fees, and network activity."
+          "text": "Ethereum Pulse is a minimalist dashboard that shows essential Ethereum data such as live ETH price, gas fees, and network activity."
         }
       },
       {
@@ -82,86 +71,94 @@
 </head>
 
 <body class="theme-neon">
- <div class="eth-diamond" aria-hidden="true"></div>
+
+  <!-- BACKGROUND LAYERS -->
+  <div class="eth-diamond" aria-hidden="true"></div>
+
+  <div class="neon-blobs" aria-hidden="true">
+    <div class="blob blob--a"></div>
+    <div class="blob blob--b"></div>
+    <div class="blob blob--c"></div>
+  </div>
 
   <main>
-    <h1>Ethereum Pulse</h1>
-    <h2>The simplest way to understand Ethereum</h2>
+    <header>
+      <h1>Ethereum Pulse</h1>
+      <h2>The simplest way to understand Ethereum</h2>
 
-    <p>
-      Ethereum Pulse is a minimalist dashboard designed to make Ethereum easy to understand.
-      It provides essential information such as the live ETH price, gas fees, and network activity,
-      without unnecessary complexity.
-    </p>
+      <p>
+        Ethereum Pulse is a minimalist dashboard designed to make Ethereum easy to understand.
+        It provides essential information such as the live ETH price, gas fees, and network activity,
+        without unnecessary complexity.
+      </p>
+    </header>
 
-    <h2>What is Ethereum Pulse?</h2>
-    <p>
-      Ethereum Pulse is a clean and accessible interface for anyone interested in Ethereum.
-      Whether you are new to crypto or already familiar with blockchain technology,
-      Ethereum Pulse focuses on what really matters.
-    </p>
+    <section>
+      <h2>What is Ethereum Pulse?</h2>
+      <p>
+        Ethereum Pulse is a clean and accessible interface for anyone interested in Ethereum.
+        Whether you are new to crypto or already familiar with blockchain technology,
+        Ethereum Pulse focuses on what really matters.
+      </p>
+    </section>
 
-    <h2>Key Ethereum Data at a Glance</h2>
-    <ul>
-      <li>Live Ethereum (ETH) price</li>
-      <li>ETH to USD, BTC and other currency conversions</li>
-      <li>Current gas fees and network activity</li>
-      <li>Ethereum supply and on-chain indicators</li>
-    </ul>
+    <section>
+      <h2>Key Ethereum Data at a Glance</h2>
+      <ul>
+        <li>Live Ethereum (ETH) price</li>
+        <li>ETH to USD, BTC and other currency conversions</li>
+        <li>Current gas fees and network activity</li>
+        <li>Ethereum supply and on-chain indicators</li>
+      </ul>
+    </section>
 
     <section class="internal-links">
       <h2>Explore Ethereum in Detail</h2>
-
       <ul>
         <li>
           <a href="/ethereum-price.html">Live Ethereum Price</a>
-          – Track the current ETH price and understand market movements.
+          – Track ETH price movements and market context.
         </li>
-
         <li>
           <a href="/ethereum-gas-fees.html">Ethereum Gas Fees Explained</a>
-          – Learn how gas fees work and why transaction costs change.
+          – Understand transaction fees and network congestion.
         </li>
-
         <li>
           <a href="/what-is-ethereum.html">What Is Ethereum?</a>
-          – A simple explanation of Ethereum and how it works.
+          – A simple explanation of how Ethereum works.
         </li>
       </ul>
     </section>
 
-    <h2>Why Ethereum Pulse?</h2>
-    <p>
-      Most Ethereum websites are overloaded with charts and technical indicators.
-      Ethereum Pulse takes a different approach by offering a clear and intuitive experience,
-      optimized for mobile and desktop users.
-    </p>
+    <section>
+      <h2>Why Ethereum Pulse?</h2>
+      <p>
+        Most Ethereum websites are overloaded with charts and technical indicators.
+        Ethereum Pulse takes a different approach by offering a clear and intuitive experience,
+        optimized for mobile and desktop users.
+      </p>
+    </section>
 
-    <h2>Who is Ethereum Pulse for?</h2>
-    <p>
-      Ethereum Pulse is built for everyone:
-      from beginners discovering Ethereum for the first time,
-      to experienced users who want a fast and reliable overview of the network.
-    </p>
+    <section>
+      <h2>Who is Ethereum Pulse for?</h2>
+      <p>
+        Ethereum Pulse is built for everyone:
+        from beginners discovering Ethereum for the first time,
+        to experienced users who want a fast and reliable overview of the network.
+      </p>
+    </section>
 
     <section class="faq">
       <h2>Frequently Asked Questions</h2>
 
       <h3>What is Ethereum Pulse?</h3>
-      <p>
-        Ethereum Pulse is a minimalist website that provides essential Ethereum data such as live ETH price,
-        gas fees, and network activity.
-      </p>
+      <p>Ethereum Pulse is a minimalist website that provides essential Ethereum data.</p>
 
       <h3>Is Ethereum Pulse free to use?</h3>
-      <p>
-        Yes. Ethereum Pulse is completely free and accessible to everyone.
-      </p>
+      <p>Yes, Ethereum Pulse is completely free.</p>
 
-      <h3>Is Ethereum Pulse affiliated with the Ethereum Foundation?</h3>
-      <p>
-        No. Ethereum Pulse is an independent project and is not affiliated with the Ethereum Foundation.
-      </p>
+      <h3>Is Ethereum Pulse affiliated with Ethereum?</h3>
+      <p>No, Ethereum Pulse is an independent project.</p>
     </section>
 
     <hr>
