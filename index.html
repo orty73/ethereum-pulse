@@ -68,6 +68,8 @@
     ]
   }
   </script>
+
+  <script defer src="app.js"></script>
 </head>
 
 <body class="theme-neon">
@@ -81,102 +83,205 @@
     <div class="blob blob--c"></div>
   </div>
 
-  <main>
-    <header>
-      <h1>Ethereum Pulse</h1>
-      <h2>The simplest way to understand Ethereum</h2>
+  <!-- VIEWPORT (2 faces / vertical swipe-scroll) -->
+  <main class="viewport" aria-label="Ethereum Pulse">
 
-      <p>
-        Ethereum Pulse is a minimalist dashboard designed to make Ethereum easy to understand.
-        It provides essential information such as the live ETH price, gas fees, and network activity,
-        without unnecessary complexity.
+    <!-- =========================
+         FACE A — Snapshot
+         ========================= -->
+    <section class="face face-a" aria-label="ETH Snapshot">
+      <div class="topline">
+        <div class="brand">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="brand-name">Ethereum Pulse</span>
+        </div>
+
+        <div class="netpill" aria-label="Network status">
+          <span class="netlabel">Network</span>
+          <span class="sep">·</span>
+          <span class="mono" id="gasGwei">--</span><span class="muted"> gwei</span>
+          <span class="sep">·</span>
+          <span class="mono" id="blockTime">--</span><span class="muted"> s</span>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="ethMark" aria-hidden="true">
+          <div class="ethTop"></div>
+          <div class="ethMid"></div>
+          <div class="ethBot"></div>
+        </div>
+
+        <!-- TAP = change currency -->
+        <button class="priceTap" id="priceTap" type="button" aria-label="Tap to change currency">
+          <span class="kicker" id="pairLabel">1 ETH =</span>
+          <span class="priceLine">
+            <span class="price" id="priceValue">—</span>
+            <span class="unit" id="priceUnit">USD</span>
+          </span>
+          <span class="hint">tap to switch USD · BTC · CNY</span>
+        </button>
+
+        <div class="subrow">
+          <span class="pill" id="changePill">—</span>
+          <span class="muted" id="updatedAt">Updating…</span>
+        </div>
+      </div>
+
+      <div class="scrollHint" aria-hidden="true">
+        <span class="chev"></span>
+        <span class="chev"></span>
+      </div>
+    </section>
+
+
+    <!-- =========================
+         FACE B — Dashboard + SEO content
+         ========================= -->
+    <section class="face face-b" aria-label="Ethereum Dashboard">
+
+      <header class="glass header-b">
+        <h1>Ethereum Pulse</h1>
+        <h2>The simplest way to understand Ethereum</h2>
+
+        <p>
+          Ethereum Pulse is a minimalist dashboard designed to make Ethereum easy to understand.
+          It provides essential information such as the live ETH price, gas fees, and network activity,
+          without unnecessary complexity.
+        </p>
+      </header>
+
+      <section class="dash">
+        <div class="card card--top">
+          <div class="card-title">Network</div>
+          <div class="card-row">
+            <span class="label">Gas</span>
+            <span class="value mono"><span id="gasGwei2">--</span> <span class="muted">gwei</span></span>
+          </div>
+          <div class="card-row">
+            <span class="label">Block time</span>
+            <span class="value mono"><span id="blockTime2">--</span> <span class="muted">s</span></span>
+          </div>
+        </div>
+
+        <div class="card card--left">
+          <div class="card-title">Economy</div>
+          <div class="card-row">
+            <span class="label">ETH / USD</span>
+            <span class="value mono" id="ethUsdMini">—</span>
+          </div>
+          <div class="card-row">
+            <span class="label">24h change</span>
+            <span class="value" id="changeMini">—</span>
+          </div>
+        </div>
+
+        <div class="card card--right">
+          <div class="card-title">Pairs</div>
+          <div class="card-row">
+            <span class="label">ETH / BTC</span>
+            <span class="value mono" id="ethBtc">—</span>
+          </div>
+          <div class="card-row">
+            <span class="label">ETH / CNY</span>
+            <span class="value mono" id="ethCny">—</span>
+          </div>
+        </div>
+
+        <div class="card card--bottom">
+          <div class="card-title">Ecosystem</div>
+          <p class="card-note muted">
+            Next modules: DeFi · NFTs · Staking (kept lightweight + SEO text).
+          </p>
+        </div>
+      </section>
+
+      <!-- SEO sections (your original content preserved) -->
+      <section class="glass">
+        <h2>What is Ethereum Pulse?</h2>
+        <p>
+          Ethereum Pulse is a clean and accessible interface for anyone interested in Ethereum.
+          Whether you are new to crypto or already familiar with blockchain technology,
+          Ethereum Pulse focuses on what really matters.
+        </p>
+      </section>
+
+      <section class="glass">
+        <h2>Key Ethereum Data at a Glance</h2>
+        <ul>
+          <li>Live Ethereum (ETH) price</li>
+          <li>ETH to USD, BTC and other currency conversions</li>
+          <li>Current gas fees and network activity</li>
+          <li>Ethereum supply and on-chain indicators</li>
+        </ul>
+      </section>
+
+      <section class="glass internal-links">
+        <h2>Explore Ethereum in Detail</h2>
+        <ul>
+          <li>
+            <a href="/ethereum-price.html">Live Ethereum Price</a>
+            – Track ETH price movements and market context.
+          </li>
+          <li>
+            <a href="/ethereum-gas-fees.html">Ethereum Gas Fees Explained</a>
+            – Understand transaction fees and network congestion.
+          </li>
+          <li>
+            <a href="/what-is-ethereum.html">What Is Ethereum?</a>
+            – A simple explanation of how Ethereum works.
+          </li>
+        </ul>
+      </section>
+
+      <section class="glass">
+        <h2>Why Ethereum Pulse?</h2>
+        <p>
+          Most Ethereum websites are overloaded with charts and technical indicators.
+          Ethereum Pulse takes a different approach by offering a clear and intuitive experience,
+          optimized for mobile and desktop users.
+        </p>
+      </section>
+
+      <section class="glass">
+        <h2>Who is Ethereum Pulse for?</h2>
+        <p>
+          Ethereum Pulse is built for everyone:
+          from beginners discovering Ethereum for the first time,
+          to experienced users who want a fast and reliable overview of the network.
+        </p>
+      </section>
+
+      <section class="glass faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What is Ethereum Pulse?</h3>
+        <p>Ethereum Pulse is a minimalist website that provides essential Ethereum data.</p>
+
+        <h3>Is Ethereum Pulse free to use?</h3>
+        <p>Yes, Ethereum Pulse is completely free.</p>
+
+        <h3>Is Ethereum Pulse affiliated with Ethereum?</h3>
+        <p>No, Ethereum Pulse is an independent project.</p>
+      </section>
+
+      <hr>
+
+      <p class="disclaimer">
+        Disclaimer: Content is for informational purposes only and does not constitute financial advice.
+        Crypto assets are volatile. Always do your own research.
       </p>
-    </header>
 
-    <section>
-      <h2>What is Ethereum Pulse?</h2>
-      <p>
-        Ethereum Pulse is a clean and accessible interface for anyone interested in Ethereum.
-        Whether you are new to crypto or already familiar with blockchain technology,
-        Ethereum Pulse focuses on what really matters.
-      </p>
+      <footer class="footer">
+        <a href="/about.html">About</a>
+        <span>·</span>
+        <a href="/privacy.html">Privacy</a>
+        <span>·</span>
+        <a href="/contact.html">Contact</a>
+      </footer>
+
     </section>
-
-    <section>
-      <h2>Key Ethereum Data at a Glance</h2>
-      <ul>
-        <li>Live Ethereum (ETH) price</li>
-        <li>ETH to USD, BTC and other currency conversions</li>
-        <li>Current gas fees and network activity</li>
-        <li>Ethereum supply and on-chain indicators</li>
-      </ul>
-    </section>
-
-    <section class="internal-links">
-      <h2>Explore Ethereum in Detail</h2>
-      <ul>
-        <li>
-          <a href="/ethereum-price.html">Live Ethereum Price</a>
-          – Track ETH price movements and market context.
-        </li>
-        <li>
-          <a href="/ethereum-gas-fees.html">Ethereum Gas Fees Explained</a>
-          – Understand transaction fees and network congestion.
-        </li>
-        <li>
-          <a href="/what-is-ethereum.html">What Is Ethereum?</a>
-          – A simple explanation of how Ethereum works.
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Why Ethereum Pulse?</h2>
-      <p>
-        Most Ethereum websites are overloaded with charts and technical indicators.
-        Ethereum Pulse takes a different approach by offering a clear and intuitive experience,
-        optimized for mobile and desktop users.
-      </p>
-    </section>
-
-    <section>
-      <h2>Who is Ethereum Pulse for?</h2>
-      <p>
-        Ethereum Pulse is built for everyone:
-        from beginners discovering Ethereum for the first time,
-        to experienced users who want a fast and reliable overview of the network.
-      </p>
-    </section>
-
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
-
-      <h3>What is Ethereum Pulse?</h3>
-      <p>Ethereum Pulse is a minimalist website that provides essential Ethereum data.</p>
-
-      <h3>Is Ethereum Pulse free to use?</h3>
-      <p>Yes, Ethereum Pulse is completely free.</p>
-
-      <h3>Is Ethereum Pulse affiliated with Ethereum?</h3>
-      <p>No, Ethereum Pulse is an independent project.</p>
-    </section>
-
-    <hr>
-
-    <p class="disclaimer">
-      Disclaimer: Content is for informational purposes only and does not constitute financial advice.
-      Crypto assets are volatile. Always do your own research.
-    </p>
-
-    <footer class="footer">
-      <a href="/about.html">About</a>
-      <span>·</span>
-      <a href="/privacy.html">Privacy</a>
-      <span>·</span>
-      <a href="/contact.html">Contact</a>
-    </footer>
   </main>
 
-  <script src="app.js"></script>
 </body>
 </html>
