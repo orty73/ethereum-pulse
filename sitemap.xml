@@ -1,53 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ethereum-pulse.com/</loc>
-    <lastmod>2026-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://ethereum-pulse.com/ethereum-price.html</loc>
-    <lastmod>2026-01-09</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://ethereum-pulse.com/eur-to-eth/</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ethereum-pulse.com/usd-to-eth/</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ethereum-pulse.com/gbp-to-eth/</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ethereum-pulse.com/jpy-to-eth/</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ethereum-pulse.com/cny-to-eth/</loc>
+    <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://ethereum-pulse.com/ethereum-gas-fees.html</loc>
-    <lastmod>2026-01-09</lastmod>
+    <loc>https://ethereum-pulse.com/eth-to-wei/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ethereum-pulse.com/what-is-ethereum.html</loc>
-    <lastmod>2026-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://ethereum-pulse.com/ethereum-trilemma/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
+  <!-- Existing standalone pages (keep if they still exist and you want them indexed) -->
   <url>
     <loc>https://ethereum-pulse.com/about.html</loc>
-    <lastmod>2026-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://ethereum-pulse.com/privacy.html</loc>
-    <lastmod>2026-01-09</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://ethereum-pulse.com/contact.html</loc>
-    <lastmod>2026-01-09</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <priority>0.3</priority>
   </url>
-
+  <url>
+    <loc>https://ethereum-pulse.com/ethereum-gas-fees.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
