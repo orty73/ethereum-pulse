@@ -396,4 +396,13 @@ li{ margin:8px 0; }
     left:50%; right:auto;
     transform: translateX(-50%);
   }
-  .hex-lef
+  .hex-left{ top: 18%; }
+  .hex-right{ top: auto; bottom: 18%; }
+  .hex-top{ top: 2%; }
+  .hex-bottom{ bottom: 2%; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .chev{ animation:none !important; }
+}
