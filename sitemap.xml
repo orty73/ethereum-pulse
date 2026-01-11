@@ -1,6 +1,6 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
   <!-- Home -->
   <url>
     <loc>https://ethereum-pulse.com/</loc>
@@ -47,7 +47,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Existing site pages (keep if you want them indexed) -->
+  <!-- Existing pages (keep if they exist and you want them indexed) -->
   <url>
     <loc>https://ethereum-pulse.com/ethereum-price.html</loc>
     <changefreq>daily</changefreq>
@@ -78,4 +78,5 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
 </urlset>
