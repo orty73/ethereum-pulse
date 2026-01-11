@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Ethereum Pulse – Live ETH Price</title>
-  <meta name="description" content="Ethereum Pulse shows the live Ethereum (ETH) price in a clean neon interface. Tap to switch USD, BTC and CNY. Fast, SEO-friendly, and simple." />
+  <meta name="description" content="Ethereum Pulse shows the live Ethereum (ETH) price in a clean neon interface. Tap to switch USD, BTC and CNY." />
   <link rel="canonical" href="https://ethereum-pulse.com/" />
   <meta name="robots" content="index, follow" />
 
@@ -14,42 +14,75 @@
 </head>
 
 <body>
-  <!-- HERO (Face A only) -->
-  <main class="hero" aria-label="Ethereum Pulse Home">
-    <div class="brand" aria-label="Ethereum Pulse">
-      <span class="dot" aria-hidden="true"></span>
-      <span class="brand-name">Ethereum Pulse</span>
-    </div>
+  <main class="page">
 
-    <!-- Tap the symbol to switch currency -->
-    <button class="ethTap" id="diamondTap" type="button" aria-label="Tap to switch currency">
-      <div class="ethSymbol" aria-hidden="true">
-        <div class="ethTop"></div>
-        <div class="ethTopShade"></div>
-
-        <div class="ethBottom"></div>
-        <div class="ethBottomShade"></div>
-
-        <!-- Price band in the middle -->
-        <div class="priceBand" aria-live="polite">
-          <span class="bandLabel">1 ETH =</span>
-          <span class="bandValue mono" id="priceValue">—</span>
-          <span class="bandUnit" id="priceUnit">USD</span>
-        </div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="brand-name">Ethereum Pulse</span>
       </div>
+    </header>
 
-      <div class="tapHint">tap to switch USD · BTC · CNY</div>
-    </button>
+    <!-- HERO (home only) -->
+    <section class="hero" aria-label="Live ETH price hero">
+      <button class="tapArea" id="diamondTap" type="button" aria-label="Tap to switch currency">
+        <div class="symbolWrap" aria-hidden="true">
 
-    <!-- Links directly from home (no swipe) -->
-    <nav class="homeLinks" aria-label="Explore Ethereum">
-      <a class="homeLink" href="/ethereum-price.html">Ethereum Price</a>
-      <a class="homeLink" href="/ethereum-gas-fees.html">Gas Fees</a>
-      <a class="homeLink" href="/what-is-ethereum.html">What is Ethereum?</a>
-    </nav>
+          <!-- ETH SYMBOL (SVG = stable + correct) -->
+          <svg class="ethSvg" viewBox="0 0 256 416" role="img" aria-label="Ethereum symbol">
+            <defs>
+              <linearGradient id="gTop" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.30"></stop>
+                <stop offset="0.35" stop-color="#a855f7" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#7c3aed" stop-opacity="0.70"></stop>
+              </linearGradient>
+              <linearGradient id="gTopR" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"></stop>
+                <stop offset="1" stop-color="#000000" stop-opacity="0.18"></stop>
+              </linearGradient>
 
-    <!-- SEO block (kept lightweight + AdSense-ready) -->
-    <section class="seo" aria-label="About Ethereum Pulse">
+              <linearGradient id="gBot" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"></stop>
+                <stop offset="0.55" stop-color="#7c3aed" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#ff3df0" stop-opacity="0.22"></stop>
+              </linearGradient>
+              <linearGradient id="gBotR" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#000000" stop-opacity="0.20"></stop>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0.12"></stop>
+              </linearGradient>
+            </defs>
+
+            <!-- Top pyramid (two faces) -->
+            <polygon points="128,0 256,208 128,272 0,208" fill="url(#gTop)" />
+            <polygon points="128,0 256,208 128,272 128,136" fill="url(#gTopR)" opacity="0.7" />
+
+            <!-- Bottom pyramid (two faces) -->
+            <polygon points="128,416 256,256 128,144 0,256" fill="url(#gBot)" />
+            <polygon points="128,416 256,256 128,144 128,304" fill="url(#gBotR)" opacity="0.7" />
+          </svg>
+
+          <!-- PRICE BAND centered -->
+          <div class="priceBand" aria-live="polite">
+            <span class="label">1 ETH =</span>
+            <span class="value mono" id="priceValue">—</span>
+            <span class="unit" id="priceUnit">USD</span>
+          </div>
+
+        </div>
+
+        <div class="hint">tap to switch USD · BTC · CNY</div>
+      </button>
+
+      <!-- Home links (direct) -->
+      <nav class="links" aria-label="Site navigation">
+        <a href="/ethereum-price.html">Ethereum Price</a>
+        <a href="/ethereum-gas-fees.html">Gas Fees</a>
+        <a href="/what-is-ethereum.html">What is Ethereum?</a>
+      </nav>
+    </section>
+
+    <!-- SEO + AdSense-ready -->
+    <section class="seo" aria-label="About">
       <h1>Live Ethereum Price</h1>
       <p>
         Ethereum Pulse is a minimalist page built to display the live Ethereum (ETH) price instantly.
@@ -70,6 +103,7 @@
         <a href="/contact.html">Contact</a>
       </footer>
     </section>
+
   </main>
 </body>
 </html>
