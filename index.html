@@ -136,22 +136,6 @@
           </li>
         </ul>
 
-        <h3>Popular ETH amounts</h3>
-        <ul class="hub-list">
-          <li><a href="/0-01-eth-to-wei/">0.01 ETH to wei</a></li>
-          <li><a href="/0-1-eth-to-wei/">0.1 ETH to wei</a></li>
-          <li><a href="/1-eth-to-wei/">1 ETH to wei</a></li>
-          <li><a href="/2-eth-to-wei/">2 ETH to wei</a></li>
-        </ul>
-
-        <h3>Popular EUR amounts</h3>
-        <ul class="hub-list">
-          <li><a href="/10-eur-to-eth/">10 EUR to ETH</a></li>
-          <li><a href="/50-eur-to-eth/">50 EUR to ETH</a></li>
-          <li><a href="/100-eur-to-eth/">100 EUR to ETH</a></li>
-          <li><a href="/1000-eur-to-eth/">1000 EUR to ETH</a></li>
-        </ul>
-
         <p class="note">
           This page links to all available converters and helps search engines
           discover and index them efficiently.
@@ -211,15 +195,19 @@
           © <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice
         </p>
         <p>
-          <a href="/privacy/">Privacy Policy</a> ·
-          <a href="/terms/">Terms</a> ·
-          <a href="/contact/">Contact</a> ·
+          <a href="/privacy.html">Privacy Policy</a> ·
+          <a href="/contact.html">Contact</a> ·
           <a href="/ethereum-trilemma/">Trilemma</a>
         </p>
       </footer>
     </section>
   </main>
 
-  <script src="/app.js"></script>
+  <script src="/app.js" defer></script>
+  <script>
+    // year on home too (optional; safe)
+    const y = document.getElementById("year");
+    if (y) y.textContent = String(new Date().getFullYear());
+  </script>
 </body>
 </html>
