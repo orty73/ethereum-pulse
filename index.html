@@ -4,183 +4,72 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Ethereum Pulse – Live ETH Price (USD/BTC/CNY)</title>
-  <meta name="description" content="Ethereum Pulse shows the live Ethereum price in a clean neon interface. Tap to switch ETH/USD, ETH/BTC and ETH/CNY. Fast, SEO-friendly, and simple.">
+  <title>Ethereum Pulse – Live ETH Price</title>
+  <meta name="description" content="Ethereum Pulse shows the live Ethereum (ETH) price in a clean and simple interface. Tap to switch USD, BTC and CNY.">
   <link rel="canonical" href="https://ethereum-pulse.com/">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Ethereum Pulse">
-  <meta property="og:title" content="Ethereum Pulse – Live ETH Price (USD/BTC/CNY)">
-  <meta property="og:description" content="Live ETH price in a clean neon interface. Tap to switch USD/BTC/CNY.">
-  <meta property="og:url" content="https://ethereum-pulse.com/">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ethereum Pulse – Live ETH Price (USD/BTC/CNY)">
-  <meta name="twitter:description" content="Live ETH price in a clean neon interface. Tap to switch USD/BTC/CNY.">
-
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Schema.org: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://ethereum-pulse.com/#website",
-    "name": "Ethereum Pulse",
-    "url": "https://ethereum-pulse.com/",
-    "description": "Ethereum Pulse shows the live Ethereum price in a clean neon interface. Tap to switch ETH/USD, ETH/BTC and ETH/CNY."
-  }
-  </script>
-
-  <!-- Schema.org: FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Ethereum Pulse?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ethereum Pulse is a minimalist page that displays the live Ethereum (ETH) price in a neon interface. Tap to switch between USD, BTC and CNY."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How often does the price update?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ethereum Pulse refreshes the price periodically and uses lightweight caching for speed."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Ethereum Pulse affiliated with the Ethereum Foundation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No, Ethereum Pulse is an independent project and is not affiliated with the Ethereum Foundation."
-        }
-      }
-    ]
-  }
-  </script>
-
   <script defer src="app.js"></script>
 </head>
 
-<body class="theme-neon">
-  <!-- Background FX -->
-  <div class="fx fx-vignette" aria-hidden="true"></div>
-  <div class="fx fx-stars" aria-hidden="true"></div>
+<body>
 
-  <main class="page">
+<main class="page">
 
-    <!-- =========================
-         HERO (Face A only)
-         ========================= -->
-    <section class="hero" aria-label="Live ETH price">
-      <div class="hero-top">
-        <div class="brand" aria-label="Ethereum Pulse">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="brand-name">Ethereum Pulse</span>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+
+    <div class="brand">
+      <span class="dot"></span>
+      <span>Ethereum Pulse</span>
+    </div>
+
+    <!-- ETH SYMBOL (REAL SHAPE) -->
+    <button class="eth-tap" id="diamondTap" aria-label="Tap to switch currency">
+
+      <div class="eth-symbol">
+        <div class="eth-top"></div>
+        <div class="eth-bottom"></div>
+
+        <!-- PRICE CENTER -->
+        <div class="eth-price">
+          <span class="label">1 ETH =</span>
+          <span class="value mono" id="priceValue">—</span>
+          <span class="unit" id="priceUnit">USD</span>
         </div>
       </div>
 
-      <!-- TAP AREA: whole diamond -->
-      <button class="diamondTap" id="diamondTap" type="button" aria-label="Tap to switch currency">
-        <div class="ethDiamond" aria-hidden="true">
-          <div class="ethTop"></div>
-          <div class="ethMid"></div>
-          <div class="ethBot"></div>
-        </div>
+      <div class="hint">tap to switch USD · BTC · CNY</div>
+    </button>
 
-        <!-- Price in the middle band -->
-        <div class="midBand" aria-live="polite">
-          <div class="midText">
-            <span class="midLeft" id="pairLabel">1 ETH =</span>
-            <span class="midValue mono" id="priceValue">—</span>
-            <span class="midUnit" id="priceUnit">USD</span>
-          </div>
-        </div>
+  </section>
 
-        <div class="tapHint">tap to switch USD · BTC · CNY</div>
-      </button>
+  <!-- ================= SEO CONTENT ================= -->
+  <section class="content">
 
-      <div class="hero-meta">
-        <span class="pill" id="changePill">—</span>
-        <span class="muted" id="updatedAt">Updating…</span>
-      </div>
+    <h1>Live Ethereum Price</h1>
+    <p>
+      Ethereum Pulse is a minimalist page that displays the Ethereum (ETH) price in real time.
+      The focus is clarity: one symbol, one value, no distractions.
+    </p>
 
-      <div class="scrollNudge" aria-hidden="true">
-        <span class="chev"></span>
-        <span class="chev"></span>
-      </div>
-    </section>
+    <h2>Explore Ethereum</h2>
+    <ul class="links">
+      <li><a href="/ethereum-price.html">Ethereum Price Analysis</a></li>
+      <li><a href="/ethereum-gas-fees.html">Ethereum Gas Fees</a></li>
+      <li><a href="/what-is-ethereum.html">What is Ethereum?</a></li>
+    </ul>
 
-    <!-- =========================
-         SEO + internal links (below hero)
-         ========================= -->
-    <section class="content" aria-label="About Ethereum Pulse">
-      <header class="glass">
-        <h1>Ethereum Pulse</h1>
-        <h2>The simplest ETH price page</h2>
-        <p>
-          Ethereum Pulse is a minimalist page designed to show the Ethereum (ETH) price instantly.
-          Tap the ETH diamond to switch between ETH/USD, ETH/BTC and ETH/CNY.
-          Built to stay fast and SEO-friendly.
-        </p>
-      </header>
+    <div class="ad-slot">Ad slot (future AdSense)</div>
 
-      <!-- Future AdSense slot (kept clean for CWV; add script later) -->
-      <div class="ad-slot" aria-label="Advertisement placeholder">
-        <div class="ad-inner">Ad slot (future AdSense)</div>
-      </div>
+    <p class="disclaimer">
+      Disclaimer: This website is for informational purposes only and does not constitute financial advice.
+    </p>
 
-      <section class="glass">
-        <h2>Live Ethereum Price</h2>
-        <p>
-          The main value displayed above is the live ETH price. For more detail, use the pages below:
-          price analysis, gas fees, and beginner-friendly explanations.
-        </p>
-      </section>
+  </section>
 
-      <section class="glass internal-links">
-        <h2>Explore Ethereum</h2>
-        <ul>
-          <li><a href="/ethereum-price.html">Live Ethereum Price</a> – Price context and market overview.</li>
-          <li><a href="/ethereum-gas-fees.html">Ethereum Gas Fees</a> – Understand transaction costs and congestion.</li>
-          <li><a href="/what-is-ethereum.html">What Is Ethereum?</a> – A simple beginner explanation.</li>
-        </ul>
-      </section>
+</main>
 
-      <section class="glass faq">
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>How do I switch currency?</h3>
-        <p>Tap the ETH diamond to cycle USD → BTC → CNY.</p>
-
-        <h3>Is this financial advice?</h3>
-        <p>No. This website is informational only. Crypto assets are volatile.</p>
-      </section>
-
-      <p class="disclaimer">
-        Disclaimer: Content is for informational purposes only and does not constitute financial advice.
-        Crypto assets are volatile. Always do your own research.
-      </p>
-
-      <footer class="footer">
-        <a href="/about.html">About</a>
-        <span>·</span>
-        <a href="/privacy.html">Privacy</a>
-        <span>·</span>
-        <a href="/contact.html">Contact</a>
-      </footer>
-    </section>
-
-  </main>
 </body>
 </html>
