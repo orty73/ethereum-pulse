@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>0.01 ETH to Wei — Exact Conversion</title>
+  <meta name="description" content="Convert 0.01 ETH to wei instantly using the exact formula. 0.01 ETH equals 10,000,000,000,000,000 wei. No API." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://ethereum-pulse.com/0-01-eth-to-wei/" />
+
+  <meta property="og:title" content="0.01 ETH to Wei — Exact Conversion" />
+  <meta property="og:description" content="0.01 ETH equals 10,000,000,000,000,000 wei. Exact conversion, no API." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ethereum-pulse.com/0-01-eth-to-wei/" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"0.01 ETH to Wei",
+    "url":"https://ethereum-pulse.com/0-01-eth-to-wei/",
+    "description":"Exact conversion page: 0.01 ETH to wei. No API."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How many wei is 0.01 ETH?","acceptedAnswer":{"@type":"Answer","text":"0.01 ETH equals exactly 10,000,000,000,000,000 wei."}},
+      {"@type":"Question","name":"Is ETH to wei conversion exact?","acceptedAnswer":{"@type":"Answer","text":"Yes. 1 ETH equals exactly 1,000,000,000,000,000,000 wei (1e18), so 0.01 ETH is exact as well."}}
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="wrap">
+    <a class="brand" href="/">Ethereum Pulse</a>
+    <nav class="nav">
+      <a href="/eth-to-wei/">ETH to wei</a>
+      <a href="/#converters">Converters</a>
+      <a href="/ethereum-trilemma/">Trilemma</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>0.01 ETH to Wei</h1>
+      <p class="subtitle">
+        Exact conversion (no API). <strong>1 ETH = 1,000,000,000,000,000,000 wei</strong>.
+      </p>
+
+      <div class="card">
+        <div class="results">
+          <div class="result full">
+            <div class="k">0.01 ETH equals</div>
+            <div class="v" id="weiOut">10,000,000,000,000,000</div>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div>Exact: <strong>0.01 × 1e18 = 10,000,000,000,000,000 wei</strong></div>
+        </div>
+
+        <div class="actions">
+          <button id="copyBtn" type="button">Copy result</button>
+        </div>
+
+        <p class="note" id="statusNote" aria-live="polite"></p>
+      </div>
+
+      <section class="related">
+        <h2>More ETH to wei conversions</h2>
+        <ul>
+          <li><a href="/0-1-eth-to-wei/">0.1 ETH to wei</a></li>
+          <li><a href="/1-eth-to-wei/">1 ETH to wei</a></li>
+          <li><a href="/2-eth-to-wei/">2 ETH to wei</a></li>
+          <li><a href="/eth-to-wei/">ETH to wei converter (custom amount)</a></li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> ethereum-pulse.com · Exact conversion · Not financial advice</p>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+
+    const copyBtn = document.getElementById("copyBtn");
+    const statusNote = document.getElementById("statusNote");
+    const weiText = "10000000000000000";
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(weiText);
+        statusNote.textContent = "Copied to clipboard.";
+        setTimeout(() => statusNote.textContent = "", 1500);
+      } catch {
+        statusNote.textContent = "Copy failed (browser blocked).";
+      }
+    });
+  </script>
+</body>
+</html>
