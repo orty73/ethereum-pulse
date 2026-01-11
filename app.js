@@ -1,172 +1,148 @@
-console.log("Ethereum Pulse loaded");
+const WEI_PER_ETH = 1_000_000_000_000_000_000n;
 
-const PAIRS = [
-  { key: "usd", unit: "USD" },
-  { key: "btc", unit: "BTC" },
-  { key: "cny", unit: "CNY" },
-];
+const amountEl = document.getElementById("amount");
+const currencyEl = document.getElementById("currency");
+const ethOutEl = document.getElementById("ethOut");
+const weiOutEl = document.getElementById("weiOut");
+const lastUpdateEl = document.getElementById("lastUpdate");
+const statusNoteEl = document.getElementById("statusNote");
+const copyBtn = document.getElementById("copyBtn");
+const refreshBtn = document.getElementById("refreshBtn");
 
-const CACHE_KEY = "epulse_home_cache_v1";
-const CACHE_TTL_MS = 60 * 1000;     // show cached data instantly (fast)
-const REFRESH_MS = 60 * 1000;       // refresh in background (light)
+document.getElementById("year").textContent = String(new Date().getFullYear());
 
-const $ = (id) => document.getElementById(id);
+let lastPrice = null; // 1 ETH = X fiat
+let inflight = false;
 
-const el = {
-  diamondTap: $("diamondTap"),
-  pairLabel: $("pairLabel"),
-  priceValue: $("priceValue"),
-  priceUnit: $("priceUnit"),
-  changePill: $("changePill"),
-  updatedAt: $("updatedAt"),
-};
-
-let pairIndex = 0;
-let timer = null;
-
-function fmtNumber(n, maxFrac = 2) {
-  if (n === null || n === undefined || Number.isNaN(n)) return "—";
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: maxFrac }).format(n);
-}
-function fmtBTC(n) {
-  if (n === null || n === undefined || Number.isNaN(n)) return "—";
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 6 }).format(n);
-}
-function safeText(node, text) {
-  if (!node) return;
-  node.textContent = text;
-}
-
-function setChangePill(pct) {
-  if (!el.changePill) return;
-
-  if (pct === null || pct === undefined || Number.isNaN(pct)) {
-    el.changePill.textContent = "—";
-    el.changePill.classList.remove("up", "down");
-    return;
+function formatNumber(n, opts = {}) {
+  try {
+    return new Intl.NumberFormat(undefined, opts).format(n);
+  } catch {
+    return String(n);
   }
-
-  const sign = pct >= 0 ? "+" : "";
-  const txt = `${sign}${pct.toFixed(2)}%`;
-
-  el.changePill.textContent = txt;
-  el.changePill.classList.remove("up", "down");
-  el.changePill.classList.add(pct >= 0 ? "up" : "down");
 }
 
-function applyPairUI() {
-  safeText(el.pairLabel, "1 ETH =");
-  safeText(el.priceUnit, PAIRS[pairIndex].unit);
+function sanitizeAmount(value) {
+  const v = String(value).trim().replace(",", ".");
+  const num = Number(v);
+  if (!Number.isFinite(num) || num < 0) return null;
+  return num;
 }
 
-function applyData(data) {
-  const p = PAIRS[pairIndex].key;
-
-  let v = null;
-  if (p === "usd") v = data.eth_usd;
-  if (p === "btc") v = data.eth_btc;
-  if (p === "cny") v = data.eth_cny;
-
-  const main =
-    p === "btc" ? fmtBTC(v) :
-    p === "cny" ? fmtNumber(v, 0) :
-    fmtNumber(v, 2);
-
-  safeText(el.priceValue, main);
-  setChangePill(data.eth_usd_24h_change_pct);
-
-  const now = new Date();
-  safeText(el.updatedAt, `Updated ${now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}`);
+function setStatus(msg) {
+  statusNoteEl.textContent = msg || "";
 }
 
-function readCache() {
-  try{
-    const raw = localStorage.getItem(CACHE_KEY);
-    if (!raw) return null;
-    const obj = JSON.parse(raw);
-    if (!obj || !obj.ts || !obj.data) return null;
-    if (Date.now() - obj.ts > CACHE_TTL_MS) return null;
-    return obj.data;
-  }catch{
+// Convert a JS Number ETH -> BigInt wei safely (18 decimals)
+function ethNumberToWeiBigInt(eth) {
+  // Guard
+  if (!Number.isFinite(eth) || eth < 0) return null;
+
+  // Convert to decimal string with 18 decimals
+  // Example: "0.123400000000000000"
+  const s = eth.toFixed(18);
+
+  const parts = s.split(".");
+  const intPart = parts[0] || "0";
+  const fracPart = (parts[1] || "").padEnd(18, "0").slice(0, 18);
+
+  // Remove leading zeros safely
+  const combined = (intPart + fracPart).replace(/^0+(?=\d)/, "");
+  try {
+    return BigInt(combined);
+  } catch {
     return null;
   }
 }
 
-function writeCache(data) {
-  try{
-    localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
-  }catch{}
+function computeAndRender() {
+  const amount = sanitizeAmount(amountEl.value);
+
+  if (amount === null) {
+    ethOutEl.textContent = "—";
+    weiOutEl.textContent = "—";
+    setStatus("Enter a valid amount.");
+    return;
+  }
+
+  if (!lastPrice) {
+    ethOutEl.textContent = "—";
+    weiOutEl.textContent = "—";
+    setStatus("Fetching price…");
+    return;
+  }
+
+  // This page behaves like the satoshi fiat->BTC page:
+  // amount is in FIAT, output is ETH + wei
+  const eth = amount / lastPrice;
+  const wei = ethNumberToWeiBigInt(eth);
+
+  ethOutEl.textContent = formatNumber(eth, { maximumFractionDigits: 8 });
+  weiOutEl.textContent = wei ? formatNumber(wei.toString(), { maximumFractionDigits: 0 }) : "—";
+  setStatus("");
 }
 
-async function fetchData() {
-  // Lightweight endpoint (no heavy charts)
-  const url = "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd,btc,cny&include_24hr_change=true";
-  const r = await fetch(url, { cache: "no-store" });
-  const j = await r.json();
-  const eth = j.ethereum || {};
+async function fetchPrice(currency) {
+  if (inflight) return;
+  inflight = true;
 
-  return {
-    eth_usd: Number(eth.usd),
-    eth_btc: Number(eth.btc),
-    eth_cny: Number(eth.cny),
-    eth_usd_24h_change_pct: Number(eth.usd_24h_change),
-  };
-}
+  try {
+    setStatus("Fetching latest ETH price…");
 
-async function refresh() {
-  try{
-    const data = await fetchData();
-    applyData(data);
-    writeCache(data);
-  }catch{
-    const cached = readCache();
-    if (!cached) safeText(el.updatedAt, "Offline (no cached data)");
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=${encodeURIComponent(currency)}`;
+    const res = await fetch(url, { headers: { accept: "application/json" } });
+
+    if (!res.ok) throw new Error(`Price request failed (${res.status})`);
+    const data = await res.json();
+
+    const price = data?.ethereum?.[currency];
+    if (!Number.isFinite(price) || price <= 0) throw new Error("Invalid price received");
+
+    lastPrice = price;
+    lastUpdateEl.textContent = new Date().toLocaleString();
+    setStatus("");
+    computeAndRender();
+  } catch (e) {
+    lastPrice = null;
+    computeAndRender();
+    setStatus("Could not fetch price right now. Try again in a moment.");
+  } finally {
+    inflight = false;
   }
 }
 
-function startAutoRefresh() {
-  stopAutoRefresh();
-  timer = setInterval(() => {
-    if (document.visibilityState === "visible") refresh();
-  }, REFRESH_MS);
-}
+// Events
+amountEl.addEventListener("input", computeAndRender);
 
-function stopAutoRefresh() {
-  if (timer) clearInterval(timer);
-  timer = null;
-}
-
-function initTap() {
-  if (!el.diamondTap) return;
-  el.diamondTap.addEventListener("click", () => {
-    pairIndex = (pairIndex + 1) % PAIRS.length;
-    applyPairUI();
-    const cached = readCache();
-    if (cached) applyData(cached);
-    // also refresh in background (non-blocking feeling)
-    refresh();
+if (currencyEl) {
+  currencyEl.addEventListener("change", async () => {
+    await fetchPrice(currencyEl.value);
   });
 }
 
-function init() {
-  applyPairUI();
+refreshBtn.addEventListener("click", async () => {
+  await fetchPrice(currencyEl.value);
+});
 
-  const cached = readCache();
-  if (cached) applyData(cached);
+copyBtn.addEventListener("click", async () => {
+  const amount = sanitizeAmount(amountEl.value);
+  if (amount === null || !lastPrice) return;
 
-  // Fetch after first paint (CWV-friendly)
-  if ("requestIdleCallback" in window) {
-    requestIdleCallback(() => refresh(), { timeout: 1200 });
-  } else {
-    setTimeout(() => refresh(), 250);
+  const ethText = ethOutEl.textContent;
+  const weiText = weiOutEl.textContent;
+  const cur = currencyEl.value.toUpperCase();
+
+  const text = `${formatNumber(amount)} ${cur} ≈ ${ethText} ETH ≈ ${weiText} wei (via ethereum-pulse.com)`;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    setStatus("Copied to clipboard.");
+    setTimeout(() => setStatus(""), 1500);
+  } catch {
+    setStatus("Copy failed (browser blocked).");
   }
+});
 
-  initTap();
-  startAutoRefresh();
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") refresh();
-  });
-}
-
-document.addEventListener("DOMContentLoaded", init);
+// Initial
+fetchPrice(currencyEl.value);
+setInterval(() => fetchPrice(currencyEl.value), 60_000);
