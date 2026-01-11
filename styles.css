@@ -1,227 +1,190 @@
-:root{
-  --bg:#05020b;
-  --text:#f6f3ff;
-  --muted:rgba(246,243,255,.58);
+/* ===============================
+   Ethereum Pulse — STABLE BASE
+   =============================== */
 
-  --violet:#a855f7;
-  --violet2:#7c3aed;
-  --pink:#ff3df0;
-
-  --stroke:rgba(255,255,255,.14);
-  --shadow:0 22px 90px rgba(0,0,0,.65);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box;}
-html,body{height:100%;}
-body{
-  margin:0;
-  color:var(--text);
-  background:
-    radial-gradient(900px 650px at 50% 58%, rgba(124,58,237,.22), transparent 70%),
-    radial-gradient(900px 650px at 50% 85%, rgba(255,61,240,.12), transparent 72%),
-    radial-gradient(1000px 700px at 50% 10%, rgba(0,0,0,.92), rgba(0,0,0,.35) 55%, rgba(0,0,0,.92)),
-    var(--bg);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,system-ui,sans-serif;
-  overflow-x:hidden;
-}
-
-a{ color:inherit; text-decoration:none; }
-a:hover{ text-decoration:underline; }
-
-.mono{ font-variant-numeric: tabular-nums; font-feature-settings:"tnum" 1; }
-
-.page{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-}
-
-/* Top brand */
-.topbar{
-  position:fixed;
-  top:0; left:0; right:0;
-  padding:14px 16px;
-  z-index:10;
-  background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,0));
-  pointer-events:none;
-}
-.brand{
-  display:flex; align-items:center; gap:10px;
-  font-weight:850;
-  letter-spacing:.2px;
-  pointer-events:none;
-}
-.dot{
-  width:10px;height:10px;border-radius:999px;
-  background: linear-gradient(135deg, var(--pink), var(--violet));
-  box-shadow:0 0 18px rgba(255,61,240,.55), 0 0 28px rgba(168,85,247,.35);
-}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:16px;
-  padding: 76px 16px 26px; /* top space for fixed brand */
-}
-
-/* IMPORTANT: hard reset button to avoid “grey/white giant rectangle” */
-.tapArea{
-  all:unset;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  cursor:pointer;
-  -webkit-tap-highlight-color: transparent;
-  user-select:none;
-}
-.tapArea:focus-visible{
-  outline:2px solid rgba(168,85,247,.55);
-  outline-offset:10px;
-  border-radius:18px;
-}
-
-/* Symbol container is bounded => never explodes on desktop */
-.symbolWrap{
-  position:relative;
-  width: min(520px, 86vw);
-  height: min(620px, 68vh);
-  display:grid;
-  place-items:center;
-  filter: drop-shadow(0 0 60px rgba(168,85,247,.22));
-}
-
-/* SVG scales INSIDE the bounded box */
-.ethSvg{
+html, body {
   width: 100%;
   height: 100%;
-  max-width: 520px;
-  max-height: 620px;
+  margin: 0;
+  padding: 0;
+  background: #05020b !important; /* FORCE NOIR */
+  color: #f6f3ff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Glow behind symbol */
-.symbolWrap:before{
-  content:"";
-  position:absolute;
-  inset:-12%;
-  border-radius:999px;
-  background:
-    radial-gradient(circle at 50% 52%, rgba(168,85,247,.22), rgba(255,61,240,.10), transparent 62%);
-  filter: blur(18px);
-  z-index:-1;
-  opacity:.95;
+/* ========= PAGE ROOT ========= */
+.page {
+  min-height: 100vh;
+  background: #05020b;
 }
 
-/* Price band centered */
-.priceBand{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%, -50%);
-  width: min(680px, 94%);
+/* ========= TOP BAR ========= */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 14px 18px;
-  border-radius: 20px;
-
-  background: linear-gradient(180deg, rgba(0,0,0,.38), rgba(0,0,0,.18));
-  border:1px solid rgba(255,255,255,.14);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 18px 80px rgba(0,0,0,.55);
-
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+  background: linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,0));
+  z-index: 10;
 }
 
-.label{
-  font-size:14px;
-  color: rgba(246,243,255,.70);
-  letter-spacing:.2px;
-}
-.value{
-  font-size: clamp(34px, 6.2vw, 62px);
-  font-weight:950;
-  letter-spacing:.4px;
-  text-shadow:0 0 18px rgba(168,85,247,.22);
-}
-.unit{
-  font-size:16px;
-  font-weight:900;
-  opacity:.92;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
 }
 
-.hint{
-  font-size:12px;
-  color: rgba(246,243,255,.55);
-  text-align:center;
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff3df0, #a855f7);
+  box-shadow: 0 0 12px #ff3df0;
 }
 
-/* Links on home */
-.links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-  margin-top: 2px;
+/* ========= HERO ========= */
+.hero {
+  height: 100vh;                 /* CLÉ */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;             /* espace topbar */
+  background: radial-gradient(
+    circle at center,
+    rgba(168,85,247,.25),
+    rgba(5,2,11,1) 70%
+  );
 }
-.links a{
-  padding:10px 12px;
-  border-radius:999px;
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.10);
+
+/* ========= TAP AREA ========= */
+.tapArea {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ========= SYMBOL WRAP ========= */
+.symbolWrap {
+  position: relative;
+  width: 320px;
+  height: 420px;                 /* BORNE */
+  max-height: 70vh;              /* CLÉ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========= ETH SVG ========= */
+.ethSvg {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  display: block;
+}
+
+/* ========= PRICE BAND ========= */
+.priceBand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.18);
   backdrop-filter: blur(10px);
-  font-weight:850;
-  font-size:13px;
-  color: rgba(246,243,255,.92);
-}
-.links a:hover{
-  text-decoration:none;
-  border-color: rgba(168,85,247,.35);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
 }
 
-/* SEO section */
-.seo{
-  width: min(900px, calc(100% - 32px));
-  margin: 0 auto 44px;
-  padding-top: 10px;
-}
-.seo h1{ margin:0 0 8px; font-size: 26px; }
-.seo p{ margin:10px 0; color: rgba(246,243,255,.70); line-height:1.55; }
-
-.adSlot{
-  margin:16px 0;
-  padding:16px;
-  border-radius:16px;
-  border:1px dashed rgba(255,255,255,.16);
-  background: rgba(255,255,255,.03);
-}
-.adInner{
-  text-align:center;
-  color: rgba(246,243,255,.55);
-  font-size:13px;
+.label {
+  font-size: 13px;
+  opacity: .7;
 }
 
-.disclaimer{
-  margin-top:14px;
-  font-size:12px;
-  color: rgba(246,243,255,.55);
+.value {
+  font-size: 38px;
+  font-weight: 900;
 }
 
-.footer{
-  margin-top:12px;
-  font-size:13px;
-  color: rgba(246,243,255,.72);
+.unit {
+  font-size: 15px;
+  font-weight: 700;
 }
-.footer span{ opacity:.55; padding:0 8px; }
 
-/* Mobile tuning */
-@media (max-width: 420px){
-  .priceBand{ padding: 12px 14px; border-radius: 18px; }
-  .label{ font-size:13px; }
-  .unit{ font-size:15px; }
+/* ========= HINT ========= */
+.hint {
+  font-size: 12px;
+  opacity: .6;
+}
+
+/* ========= LINKS ========= */
+.links {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.links a {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ========= SEO ========= */
+.seo {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.seo h1 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.seo p {
+  line-height: 1.6;
+  opacity: .75;
+}
+
+/* ========= FOOTER ========= */
+.footer {
+  margin-top: 24px;
+  font-size: 13px;
+  opacity: .7;
+}
+.footer span {
+  margin: 0 8px;
+}
+
+/* ========= MOBILE ========= */
+@media (max-width: 480px) {
+  .symbolWrap {
+    width: 260px;
+    height: 360px;
+  }
+  .value {
+    font-size: 32px;
+  }
 }
