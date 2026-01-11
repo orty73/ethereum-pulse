@@ -102,30 +102,30 @@ button.secondary { background: var(--btn2); }
 
 .note { min-height: 20px; margin: 10px 2px 0; color: var(--muted); }
 
-/* Hub lists (SEO) */
-.hub-list{
-  list-style: none;
-  padding-left: 0;
-  margin: 10px 0 0;
+.ad-slot {
+  margin-top: 18px;
+  border: 1px dashed rgba(255,255,255,.18);
+  border-radius: var(--radius);
+  padding: 16px;
+  color: var(--muted);
 }
-.hub-list li{
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 6px;
-}
-.hub-list li:first-child{ border-top: none; }
-.hub-list span{ color: var(--muted); }
+.ad-inner { text-align: center; }
 
-.seo, .faq {
+.seo, .faq, .related {
   margin-top: 22px;
   background: rgba(255,255,255,.03);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
 }
-.seo h2, .faq h2 { margin: 0 0 10px; font-size: 1.15rem; }
+.seo h2, .faq h2, .related h2 { margin: 0 0 10px; font-size: 1.15rem; }
+
+.related ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.related li { padding: 4px 0; }
 
 details {
   border-top: 1px solid var(--line);
