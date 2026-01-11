@@ -1,15 +1,17 @@
-/* Ethereum Pulse — app.js
-   Supports:
-   - Home quick converter: fiat -> ETH + wei (CoinGecko)
-   - Fiat pages: EUR/USD/GBP/JPY/CNY -> ETH + wei (CoinGecko)
+/* Ethereum Pulse — app.js (v2)
+   - Fiat -> ETH + wei using CoinGecko
+   - Works with:
+     * Home (amount input + currency select)
+     * Fixed fiat amount pages (hidden amount + hidden/disabled select)
+     * Fixed currency pages (displayed currency text + hidden select)
    - Safe no-op on pages that don't have expected IDs
 */
 
 const WEI_PER_ETH = 10n ** 18n;
 
 // Elements (may or may not exist depending on the page)
-const amountEl = document.getElementById("amount");
-const currencyEl = document.getElementById("currency"); // may be disabled on fixed pages
+const amountEl = document.getElementById("amount");      // input (visible or hidden)
+const currencyEl = document.getElementById("currency");  // select (visible, hidden, even disabled)
 const ethOutEl = document.getElementById("ethOut");
 const weiOutEl = document.getElementById("weiOut");
 const lastUpdateEl = document.getElementById("lastUpdate");
@@ -45,52 +47,55 @@ function setStatus(msg) {
   statusNoteEl.textContent = msg || "";
 }
 
-/**
- * Convert a decimal ETH string to wei BigInt.
- * Accepts "." or "," decimals.
- * Example: "0.0000045" -> 4500000000000n
- */
-function ethStringToWeiBigInt(ethStr) {
-  const clean = String(ethStr ?? "").trim().replace(",", ".");
-  if (!clean) return null;
-
-  // Handle sign (we only allow positive)
-  if (clean.startsWith("-")) return null;
-
-  const parts = clean.split(".");
-  if (parts.length > 2) return null;
-
-  const intPart = parts[0] ? parts[0].replace(/\D/g, "") : "0";
-  const decPartRaw = parts[1] ? parts[1].replace(/\D/g, "") : "";
-
-  // Pad/truncate to 18 decimals
-  const decPart = (decPartRaw + "0".repeat(18)).slice(0, 18);
-
-  // Avoid BigInt("") edge case
-  const intBI = BigInt(intPart || "0");
-  const decBI = BigInt(decPart || "0");
-
-  return intBI * WEI_PER_ETH + decBI;
-}
-
-/**
- * Convert a Number ETH value to wei BigInt (approx).
- * We use toFixed(18) for stable decimal string, then parse to BigInt.
- * This is an estimate on fiat pages (which are estimates anyway).
- */
-function ethNumberToWeiBigInt(ethValue) {
-  if (!Number.isFinite(ethValue) || ethValue < 0) return null;
-  // Convert to string with 18 decimals; may include scientific for huge values (unlikely)
-  const s = ethValue.toFixed(18);
-  return ethStringToWeiBigInt(s);
-}
-
 function clearOutputs() {
   if (ethOutEl) ethOutEl.textContent = "—";
   if (weiOutEl) weiOutEl.textContent = "—";
 }
 
+/**
+ * Convert ETH Number -> wei BigInt (estimate).
+ * We do: eth.toFixed(18) then parse to BigInt safely.
+ */
+function ethNumberToWeiBigInt(ethValue) {
+  if (!Number.isFinite(ethValue) || ethValue < 0) return null;
+
+  // Convert to string with 18 decimals (stable), then parse
+  const s = ethValue.toFixed(18); // e.g. "0.123400000000000000"
+  const parts = s.split(".");
+  const intPart = parts[0] || "0";
+  const decPart = (parts[1] || "").padEnd(18, "0").slice(0, 18);
+
+  // BigInt parsing
+  const intBI = BigInt(intPart);
+  const decBI = BigInt(decPart || "0");
+  return intBI * WEI_PER_ETH + decBI;
+}
+
+/**
+ * Get currency even if the select is hidden/disabled.
+ * Returns lowercase currency code like "eur".
+ */
+function getCurrencyCode() {
+  if (!currencyEl) return null;
+
+  // Prefer value
+  let v = String(currencyEl.value || "").trim().toLowerCase();
+
+  // Fallback: selected option value
+  if (!v && currencyEl.options && currencyEl.selectedIndex >= 0) {
+    v = String(currencyEl.options[currencyEl.selectedIndex]?.value || "").trim().toLowerCase();
+  }
+
+  // Fallback: first option
+  if (!v && currencyEl.options && currencyEl.options.length > 0) {
+    v = String(currencyEl.options[0]?.value || "").trim().toLowerCase();
+  }
+
+  return v || null;
+}
+
 function renderFiatConversion() {
+  // Need these to compute:
   if (!amountEl || !ethOutEl || !weiOutEl) return;
 
   const amount = sanitizeAmount(amountEl.value);
@@ -112,7 +117,7 @@ function renderFiatConversion() {
   // ETH output (human readable)
   ethOutEl.textContent = formatNumber(eth, { maximumFractionDigits: 8 });
 
-  // Wei output (big integer; estimate derived from ETH)
+  // Wei output (big integer; estimate)
   const weiBI = ethNumberToWeiBigInt(eth);
   weiOutEl.textContent = weiBI ? weiBI.toString() : "—";
 
@@ -152,43 +157,39 @@ async function fetchEthPrice(vsCurrency) {
   }
 }
 
-function getSelectedCurrency() {
-  // If no currency select exists on a page, we can't do fiat mode
-  if (!currencyEl) return null;
-
-  const v = String(currencyEl.value || "").trim().toLowerCase();
-  return v || null;
-}
-
 function setupFiatModeIfPresent() {
-  // Fiat mode requires these IDs:
-  // amount, currency, ethOut, weiOut, refreshBtn, copyBtn (some optional)
+  // Fiat mode requires:
+  // - amountEl
+  // - currencyEl (even hidden/disabled)
+  // - outputs
   if (!amountEl || !currencyEl || !ethOutEl || !weiOutEl) return;
 
-  // Events
+  // Amount change (works even if input is hidden; no harm)
   amountEl.addEventListener("input", renderFiatConversion);
 
+  // Currency change (only relevant on home; safe elsewhere)
   currencyEl.addEventListener("change", async () => {
-    const cur = getSelectedCurrency();
+    const cur = getCurrencyCode();
     if (!cur) return;
     await fetchEthPrice(cur);
   });
 
+  // Refresh
   if (refreshBtn) {
     refreshBtn.addEventListener("click", async () => {
-      const cur = getSelectedCurrency();
+      const cur = getCurrencyCode();
       if (!cur) return;
       await fetchEthPrice(cur);
     });
   }
 
+  // Copy
   if (copyBtn) {
     copyBtn.addEventListener("click", async () => {
       const amount = sanitizeAmount(amountEl.value);
-      if (amount === null || !lastPrice) return;
+      const cur = getCurrencyCode();
 
-      const cur = getSelectedCurrency();
-      if (!cur) return;
+      if (amount === null || !cur || !lastPrice) return;
 
       const ethText = ethOutEl.textContent || "—";
       const weiText = weiOutEl.textContent || "—";
@@ -207,10 +208,13 @@ function setupFiatModeIfPresent() {
   }
 
   // Initial fetch + refresh loop
-  const cur = getSelectedCurrency();
+  const cur = getCurrencyCode();
   if (cur) {
     fetchEthPrice(cur);
     setInterval(() => fetchEthPrice(cur), 60_000);
+  } else {
+    // If somehow missing currency code, keep UX clean
+    setStatus("");
   }
 }
 
