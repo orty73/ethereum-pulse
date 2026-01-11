@@ -4,17 +4,65 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CNY to ETH Converter — Convert Yuan to Ethereum</title>
+  <title>CNY to ETH Converter — Convert Chinese Yuan to Ethereum</title>
   <meta name="description" content="Convert Chinese yuan (CNY) to Ethereum (ETH) instantly using the current ETH price. Free CNY to ETH converter." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://ethereum-pulse.com/cny-to-eth/" />
 
-  <meta property="og:title" content="CNY to ETH Converter — Convert Yuan to Ethereum" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="CNY to ETH Converter — Convert Chinese Yuan to Ethereum" />
   <meta property="og:description" content="Convert Chinese yuan (CNY) to ETH instantly using real-time Ethereum prices." />
   <meta property="og:url" content="https://ethereum-pulse.com/cny-to-eth/" />
   <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Schema.org (WebApplication + FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"CNY to ETH Converter",
+    "url":"https://ethereum-pulse.com/cny-to-eth/",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"All",
+    "description":"Convert Chinese yuan (CNY) into Ethereum (ETH) and wei using real-time ETH prices."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is wei?",
+        "acceptedAnswer":{"@type":"Answer","text":"Wei is the smallest unit of Ethereum. 1 wei equals 0.000000000000000001 ETH (1e-18 ETH)."}
+      },
+      {
+        "@type":"Question",
+        "name":"How many wei are in one ETH?",
+        "acceptedAnswer":{"@type":"Answer","text":"There are exactly 1,000,000,000,000,000,000 wei (1e18) in 1 ETH."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is the ETH price updated in real time?",
+        "acceptedAnswer":{"@type":"Answer","text":"This converter refreshes the ETH price periodically and uses the latest available market data from a public pricing API."}
+      },
+      {
+        "@type":"Question",
+        "name":"Can I convert other currencies to ETH?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. You can use other pages like EUR to ETH, USD to ETH, GBP to ETH, and JPY to ETH. Availability depends on the pricing API coverage."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is this ETH converter free?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. It is a free tool to quickly estimate ETH and wei amounts from fiat currencies."}
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -29,7 +77,7 @@
     <section class="hero">
       <h1>CNY to Ethereum (ETH) & Wei</h1>
       <p class="subtitle">
-        Instantly convert Chinese yuan (CNY) into <strong>ETH</strong> and <strong>wei</strong> using real-time market prices.
+        Instantly convert Chinese Yuan (CNY) into <strong>ETH</strong> and <strong>wei</strong> using real-time market prices.
       </p>
 
       <div class="card">
@@ -38,6 +86,7 @@
           <input id="amount" inputmode="decimal" autocomplete="off" placeholder="1000" value="1000" />
         </div>
 
+        <!-- Keep the select for app.js but hide it -->
         <div class="row" style="display:none;">
           <label for="currency">Currency</label>
           <select id="currency" disabled>
@@ -90,7 +139,7 @@
       </section>
 
       <section class="related">
-        <h2>Other currency converters</h2>
+        <h2>Other converters</h2>
         <ul>
           <li><a href="/eur-to-eth/">EUR to ETH converter</a></li>
           <li><a href="/usd-to-eth/">USD to ETH converter</a></li>
@@ -103,18 +152,27 @@
 
       <section id="faq" class="faq">
         <h2>Frequently Asked Questions</h2>
+
         <details>
           <summary>What is wei?</summary>
           <p>Wei is the smallest unit of Ethereum. 1 wei equals 0.000000000000000001 ETH (1e-18 ETH).</p>
         </details>
+
         <details>
           <summary>How many wei are in one ETH?</summary>
           <p>There are exactly 1,000,000,000,000,000,000 wei (1e18) in 1 ETH.</p>
         </details>
+
         <details>
           <summary>Is the ETH price updated in real time?</summary>
           <p>This tool refreshes pricing periodically and uses the latest available market data from a public pricing API.</p>
         </details>
+
+        <details>
+          <summary>Can I convert other currencies to ETH?</summary>
+          <p>Yes — you can use EUR, USD, GBP, and JPY pages. Availability depends on the pricing API coverage.</p>
+        </details>
+
         <details>
           <summary>Is this ETH converter free?</summary>
           <p>Yes. It’s a free tool to quickly estimate ETH and wei amounts from fiat currencies.</p>
