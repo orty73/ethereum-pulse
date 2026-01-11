@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Ethereum Pulse – Live ETH Price</title>
-  <meta name="description" content="Ethereum Pulse shows the live Ethereum (ETH) price in a clean and simple interface. Tap to switch USD, BTC and CNY.">
-  <link rel="canonical" href="https://ethereum-pulse.com/">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Ethereum Pulse shows the live Ethereum (ETH) price in a clean neon interface. Tap to switch USD, BTC and CNY. Fast, SEO-friendly, and simple." />
+  <link rel="canonical" href="https://ethereum-pulse.com/" />
+  <meta name="robots" content="index, follow" />
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="app.js"></script>
 </head>
 
 <body>
-
-<main class="page">
-
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-
-    <div class="brand">
-      <span class="dot"></span>
-      <span>Ethereum Pulse</span>
+  <!-- HERO (Face A only) -->
+  <main class="hero" aria-label="Ethereum Pulse Home">
+    <div class="brand" aria-label="Ethereum Pulse">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="brand-name">Ethereum Pulse</span>
     </div>
 
-    <!-- ETH SYMBOL (REAL SHAPE) -->
-    <button class="eth-tap" id="diamondTap" aria-label="Tap to switch currency">
+    <!-- Tap the symbol to switch currency -->
+    <button class="ethTap" id="diamondTap" type="button" aria-label="Tap to switch currency">
+      <div class="ethSymbol" aria-hidden="true">
+        <div class="ethTop"></div>
+        <div class="ethTopShade"></div>
 
-      <div class="eth-symbol">
-        <div class="eth-top"></div>
-        <div class="eth-bottom"></div>
+        <div class="ethBottom"></div>
+        <div class="ethBottomShade"></div>
 
-        <!-- PRICE CENTER -->
-        <div class="eth-price">
-          <span class="label">1 ETH =</span>
-          <span class="value mono" id="priceValue">—</span>
-          <span class="unit" id="priceUnit">USD</span>
+        <!-- Price band in the middle -->
+        <div class="priceBand" aria-live="polite">
+          <span class="bandLabel">1 ETH =</span>
+          <span class="bandValue mono" id="priceValue">—</span>
+          <span class="bandUnit" id="priceUnit">USD</span>
         </div>
       </div>
 
-      <div class="hint">tap to switch USD · BTC · CNY</div>
+      <div class="tapHint">tap to switch USD · BTC · CNY</div>
     </button>
 
-  </section>
+    <!-- Links directly from home (no swipe) -->
+    <nav class="homeLinks" aria-label="Explore Ethereum">
+      <a class="homeLink" href="/ethereum-price.html">Ethereum Price</a>
+      <a class="homeLink" href="/ethereum-gas-fees.html">Gas Fees</a>
+      <a class="homeLink" href="/what-is-ethereum.html">What is Ethereum?</a>
+    </nav>
 
-  <!-- ================= SEO CONTENT ================= -->
-  <section class="content">
+    <!-- SEO block (kept lightweight + AdSense-ready) -->
+    <section class="seo" aria-label="About Ethereum Pulse">
+      <h1>Live Ethereum Price</h1>
+      <p>
+        Ethereum Pulse is a minimalist page built to display the live Ethereum (ETH) price instantly.
+        Tap the Ethereum symbol to switch between ETH/USD, ETH/BTC and ETH/CNY.
+      </p>
 
-    <h1>Live Ethereum Price</h1>
-    <p>
-      Ethereum Pulse is a minimalist page that displays the Ethereum (ETH) price in real time.
-      The focus is clarity: one symbol, one value, no distractions.
-    </p>
+      <div class="adSlot" aria-label="Advertisement placeholder">
+        <div class="adInner">Ad slot (future AdSense)</div>
+      </div>
 
-    <h2>Explore Ethereum</h2>
-    <ul class="links">
-      <li><a href="/ethereum-price.html">Ethereum Price Analysis</a></li>
-      <li><a href="/ethereum-gas-fees.html">Ethereum Gas Fees</a></li>
-      <li><a href="/what-is-ethereum.html">What is Ethereum?</a></li>
-    </ul>
+      <p class="disclaimer">
+        Disclaimer: Content is for informational purposes only and does not constitute financial advice.
+      </p>
 
-    <div class="ad-slot">Ad slot (future AdSense)</div>
-
-    <p class="disclaimer">
-      Disclaimer: This website is for informational purposes only and does not constitute financial advice.
-    </p>
-
-  </section>
-
-</main>
-
+      <footer class="footer">
+        <a href="/about.html">About</a><span>·</span>
+        <a href="/privacy.html">Privacy</a><span>·</span>
+        <a href="/contact.html">Contact</a>
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
