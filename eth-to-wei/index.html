@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ETH to Wei Converter — Convert Ethereum to Wei</title>
+  <meta name="description" content="Convert Ethereum (ETH) to wei instantly using the exact formula. Free ETH to wei converter." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://ethereum-pulse.com/eth-to-wei/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ETH to Wei Converter — Convert Ethereum to Wei" />
+  <meta property="og:description" content="Convert Ethereum (ETH) to wei instantly using the exact conversion (1 ETH = 1e18 wei)." />
+  <meta property="og:url" content="https://ethereum-pulse.com/eth-to-wei/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Schema.org (WebApplication + FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"ETH to Wei Converter",
+    "url":"https://ethereum-pulse.com/eth-to-wei/",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"All",
+    "description":"Convert Ethereum (ETH) into wei using the exact fixed conversion (1 ETH = 1e18 wei)."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is wei?",
+        "acceptedAnswer":{"@type":"Answer","text":"Wei is the smallest unit of Ethereum. 1 wei equals 0.000000000000000001 ETH (1e-18 ETH)."}
+      },
+      {
+        "@type":"Question",
+        "name":"How many wei are in one ETH?",
+        "acceptedAnswer":{"@type":"Answer","text":"There are exactly 1,000,000,000,000,000,000 wei (1e18) in 1 ETH."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is this conversion exact?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. ETH to wei uses a fixed formula (no market price)."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is this ETH to wei converter free?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. This tool is free to use."}
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="wrap">
+    <a class="brand" href="/">Ethereum Pulse</a>
+    <nav class="nav">
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>ETH to Wei Converter</h1>
+      <p class="subtitle">
+        Instantly convert <strong>Ethereum (ETH)</strong> into <strong>wei</strong> using the exact conversion:
+        <strong>1 ETH = 1,000,000,000,000,000,000 wei</strong>.
+      </p>
+
+      <div class="card">
+        <div class="row">
+          <label for="amount">Amount (ETH)</label>
+          <input id="amount" inputmode="decimal" autocomplete="off" placeholder="1" value="1" />
+        </div>
+
+        <div class="row">
+          <label>Currency</label>
+          <div class="fixed-currency">ETH — Ethereum</div>
+        </div>
+
+        <div class="results">
+          <div class="result">
+            <div class="k">Ethereum (ETH)</div>
+            <div class="v" id="ethOut">—</div>
+          </div>
+          <div class="result">
+            <div class="k">Wei</div>
+            <div class="v" id="weiOut">—</div>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div>Price source: <span id="sourceName">Exact (no API)</span></div>
+          <div>Last update: <span id="lastUpdate">—</span></div>
+        </div>
+
+        <div class="actions">
+          <button id="copyBtn" type="button">Copy result</button>
+          <button id="refreshBtn" type="button" class="secondary">Recalculate</button>
+        </div>
+
+        <p class="note" id="statusNote" aria-live="polite"></p>
+      </div>
+
+      <div class="ad-slot" aria-label="Advertisement">
+        <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
+      </div>
+
+      <section class="seo">
+        <h2>Convert ETH to wei (exact)</h2>
+        <p>
+          Wei is the smallest unit of Ethereum. This page uses the exact conversion:
+          <strong>1 ETH = 1e18 wei</strong>. No price feed is required.
+        </p>
+        <p>
+          If you want to convert fiat currencies into ETH, use our dedicated pages (EUR to ETH, USD to ETH, and more).
+        </p>
+      </section>
+
+      <section class="related">
+        <h2>Other currency converters</h2>
+        <ul>
+          <li><a href="/eur-to-eth/">EUR to ETH converter</a></li>
+          <li><a href="/usd-to-eth/">USD to ETH converter</a></li>
+          <li><a href="/gbp-to-eth/">GBP to ETH converter</a></li>
+          <li><a href="/jpy-to-eth/">JPY to ETH converter</a></li>
+          <li><a href="/cny-to-eth/">CNY to ETH converter</a></li>
+          <li><a href="/ethereum-trilemma/">Ethereum trilemma: security, decentralization, scalability</a></li>
+        </ul>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <details>
+          <summary>What is wei?</summary>
+          <p>Wei is the smallest unit of Ethereum. 1 wei equals 0.000000000000000001 ETH (1e-18 ETH).</p>
+        </details>
+
+        <details>
+          <summary>How many wei are in one ETH?</summary>
+          <p>There are exactly 1,000,000,000,000,000,000 wei (1e18) in 1 ETH.</p>
+        </details>
+
+        <details>
+          <summary>Is this conversion exact?</summary>
+          <p>Yes. ETH to wei uses a fixed formula (no market price).</p>
+        </details>
+
+        <details>
+          <summary>Is this ETH to wei converter free?</summary>
+          <p>Yes. This tool is free to use.</p>
+        </details>
+      </section>
+
+      <footer class="footer">
+        <p>
+          © <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice
+        </p>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+
+    const amountEl = document.getElementById("amount");
+    const ethOutEl = document.getElementById("ethOut");
+    const weiOutEl = document.getElementById("weiOut");
+    const statusNoteEl = document.getElementById("statusNote");
+    const copyBtn = document.getElementById("copyBtn");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    function setStatus(msg) {
+      statusNoteEl.textContent = msg || "";
+    }
+
+    // Parse an ETH decimal string into wei BigInt (exact, up to 18 decimals)
+    function ethStringToWeiBigInt(input) {
+      const raw = String(input ?? "").trim().replace(",", ".");
+      if (raw === "") return null;
+
+      // only digits and one dot
+      if (!/^\d+(\.\d+)?$/.test(raw)) return null;
+
+      const [intPartRaw, fracPartRaw = ""] = raw.split(".");
+      const intPart = intPartRaw.replace(/^0+(?=\d)/, ""); // keep one 0 if all zeros
+      const fracPart = fracPartRaw.padEnd(18, "0").slice(0, 18);
+
+      // If intPart becomes "", it means it was "0"
+      const safeInt = intPart === "" ? "0" : intPart;
+
+      // Combine to 18 decimals
+      const combined = (safeInt + fracPart).replace(/^0+(?=\d)/, "");
+      try {
+        return BigInt(combined);
+      } catch {
+        return null;
+      }
+    }
+
+    function formatNumber(n, opts = {}) {
+      try {
+        return new Intl.NumberFormat(undefined, opts).format(n);
+      } catch {
+        return String(n);
+      }
+    }
+
+    function computeAndRender() {
+      const raw = String(amountEl.value ?? "").trim();
+      const wei = ethStringToWeiBigInt(raw);
+
+      if (wei === null) {
+        ethOutEl.textContent = "—";
+        weiOutEl.textContent = "—";
+        setStatus("Enter a valid ETH amount.");
+        return;
+      }
+
+      // Normalize ETH display lightly (keep user input but trim spaces)
+      ethOutEl.textContent = raw.replace(",", ".");
+      weiOutEl.textContent = formatNumber(wei.toString(), { maximumFractionDigits: 0 });
+      setStatus("");
+    }
+
+    amountEl.addEventListener("input", computeAndRender);
+    refreshBtn.addEventListener("click", computeAndRender);
+
+    copyBtn.addEventListener("click", async () => {
+      const raw = String(amountEl.value ?? "").trim();
+      const wei = ethStringToWeiBigInt(raw);
+      if (wei === null) return;
+
+      const text = `${raw.replace(",", ".")} ETH = ${wei.toString()} wei (via ethereum-pulse.com)`;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        setStatus("Copied to clipboard.");
+        setTimeout(() => setStatus(""), 1500);
+      } catch {
+        setStatus("Copy failed (browser blocked).");
+      }
+    });
+
+    // Initial
+    computeAndRender();
+  </script>
+</body>
+</html>
