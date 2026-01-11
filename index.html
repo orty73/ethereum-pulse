@@ -1,109 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="google-adsense-account" content="ca-pub-3692358856119558">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Ethereum Pulse – Live ETH Price</title>
-  <meta name="description" content="Ethereum Pulse shows the live Ethereum (ETH) price in a clean neon interface. Tap to switch USD, BTC and CNY." />
+  <title>Ethereum Pulse — ETH & Fiat to Wei Converter</title>
+  <meta name="description" content="Convert Ethereum (ETH) and fiat currencies like EUR, USD, GBP, JPY or CNY into wei. Simple, fast and accurate ETH converters." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://ethereum-pulse.com/" />
-  <meta name="robots" content="index, follow" />
 
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="app.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ethereum Pulse — ETH & Fiat to Wei Converter" />
+  <meta property="og:description" content="All ETH converters in one place: ETH, EUR, USD, GBP, JPY, CNY to wei." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ethereum-pulse.com/" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Schema.org: CollectionPage + ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Ethereum Pulse Converter Hub",
+    "url": "https://ethereum-pulse.com/",
+    "description": "Convert Ethereum and major fiat currencies into wei using simple and accurate online converters.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://ethereum-pulse.com/eth-to-wei/" },
+        { "@type": "ListItem", "position": 2, "url": "https://ethereum-pulse.com/eur-to-eth/" },
+        { "@type": "ListItem", "position": 3, "url": "https://ethereum-pulse.com/usd-to-eth/" },
+        { "@type": "ListItem", "position": 4, "url": "https://ethereum-pulse.com/gbp-to-eth/" },
+        { "@type": "ListItem", "position": 5, "url": "https://ethereum-pulse.com/jpy-to-eth/" },
+        { "@type": "ListItem", "position": 6, "url": "https://ethereum-pulse.com/cny-to-eth/" }
+      ]
+    }
+  }
+  </script>
 </head>
 
 <body>
-  <main class="page">
+  <header class="wrap">
+    <a class="brand" href="/">Ethereum Pulse</a>
+    <nav class="nav">
+      <a href="#converters">Converters</a>
+      <a href="#about">About</a>
+      <a href="#trilemma">Trilemma</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
 
-    <header class="topbar">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span class="brand-name">Ethereum Pulse</span>
-      </div>
-    </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Ethereum (ETH) & Wei Converter</h1>
+      <p class="subtitle">
+        Convert <strong>Ethereum (ETH)</strong> and major fiat currencies like
+        <strong>EUR, USD, GBP, JPY or CNY</strong> into <strong>wei</strong>.
+        Wei is the smallest unit of Ethereum: <strong>1 ETH = 1,000,000,000,000,000,000 wei</strong>.
+      </p>
 
-    <!-- HERO (home only) -->
-    <section class="hero" aria-label="Live ETH price hero">
-      <button class="tapArea" id="diamondTap" type="button" aria-label="Tap to switch currency">
-        <div class="symbolWrap" aria-hidden="true">
+      <!-- QUICK CONVERTER (fiat -> ETH/wei) -->
+      <div class="card" aria-label="Ethereum converter">
+        <h2>Quick converter</h2>
 
-          <!-- ETH SYMBOL (SVG = stable + correct) -->
-          <svg class="ethSvg" viewBox="0 0 256 416" role="img" aria-label="Ethereum symbol">
-            <defs>
-              <linearGradient id="gTop" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ffffff" stop-opacity="0.30"></stop>
-                <stop offset="0.35" stop-color="#a855f7" stop-opacity="0.95"></stop>
-                <stop offset="1" stop-color="#7c3aed" stop-opacity="0.70"></stop>
-              </linearGradient>
-              <linearGradient id="gTopR" x1="1" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"></stop>
-                <stop offset="1" stop-color="#000000" stop-opacity="0.18"></stop>
-              </linearGradient>
-
-              <linearGradient id="gBot" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"></stop>
-                <stop offset="0.55" stop-color="#7c3aed" stop-opacity="0.95"></stop>
-                <stop offset="1" stop-color="#ff3df0" stop-opacity="0.22"></stop>
-              </linearGradient>
-              <linearGradient id="gBotR" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#000000" stop-opacity="0.20"></stop>
-                <stop offset="1" stop-color="#ffffff" stop-opacity="0.12"></stop>
-              </linearGradient>
-            </defs>
-
-            <!-- Top pyramid (two faces) -->
-            <polygon points="128,0 256,208 128,272 0,208" fill="url(#gTop)" />
-            <polygon points="128,0 256,208 128,272 128,136" fill="url(#gTopR)" opacity="0.7" />
-
-            <!-- Bottom pyramid (two faces) -->
-            <polygon points="128,416 256,256 128,144 0,256" fill="url(#gBot)" />
-            <polygon points="128,416 256,256 128,144 128,304" fill="url(#gBotR)" opacity="0.7" />
-          </svg>
-
-          <!-- PRICE BAND centered -->
-          <div class="priceBand" aria-live="polite">
-            <span class="label">1 ETH =</span>
-            <span class="value mono" id="priceValue">—</span>
-            <span class="unit" id="priceUnit">USD</span>
-          </div>
-
+        <div class="row">
+          <label for="amount">Amount</label>
+          <input id="amount" inputmode="decimal" autocomplete="off" placeholder="e.g. 100" />
         </div>
 
-        <div class="hint">tap to switch USD · BTC · CNY</div>
-      </button>
+        <div class="row">
+          <label for="currency">Currency</label>
+          <select id="currency">
+            <option value="eur">EUR — Euro</option>
+            <option value="usd">USD — US Dollar</option>
+            <option value="gbp">GBP — British Pound</option>
+            <option value="jpy">JPY — Japanese Yen</option>
+            <option value="cny">CNY — Chinese Yuan</option>
+          </select>
+        </div>
 
-      <!-- Home links (direct) -->
-      <nav class="links" aria-label="Site navigation">
-        <a href="/ethereum-price.html">Ethereum Price</a>
-        <a href="/ethereum-gas-fees.html">Gas Fees</a>
-        <a href="/what-is-ethereum.html">What is Ethereum?</a>
-      </nav>
-    </section>
+        <div class="results" aria-live="polite">
+          <div class="result">
+            <div class="k">ETH</div>
+            <div class="v" id="ethOut">—</div>
+          </div>
+          <div class="result">
+            <div class="k">Wei</div>
+            <div class="v" id="weiOut">—</div>
+          </div>
+        </div>
 
-    <!-- SEO + AdSense-ready -->
-    <section class="seo" aria-label="About">
-      <h1>Live Ethereum Price</h1>
-      <p>
-        Ethereum Pulse is a minimalist page built to display the live Ethereum (ETH) price instantly.
-        Tap the Ethereum symbol to switch between ETH/USD, ETH/BTC and ETH/CNY.
-      </p>
+        <div class="meta">
+          <div>Price source: CoinGecko</div>
+          <div>Last update: <span id="lastUpdate">—</span></div>
+        </div>
 
-      <div class="adSlot" aria-label="Advertisement placeholder">
-        <div class="adInner">Ad slot (future AdSense)</div>
+        <div class="actions">
+          <button id="copyBtn" type="button">Copy result</button>
+          <button class="secondary" id="refreshBtn" type="button">Refresh price</button>
+        </div>
+
+        <div class="note" id="statusNote" role="status"></div>
       </div>
 
-      <p class="disclaimer">
-        Disclaimer: Content is for informational purposes only and does not constitute financial advice.
-      </p>
+      <!-- MAIN HUB -->
+      <div class="card" id="converters">
+        <h2>All converters</h2>
+
+        <ul class="hub-list">
+          <li>
+            <a href="/eth-to-wei/"><strong>ETH to wei converter</strong></a>
+            <span>— Exact conversion (1 ETH = 1e18 wei)</span>
+          </li>
+          <li>
+            <a href="/eur-to-eth/"><strong>EUR to ETH converter</strong></a>
+            <span>— Convert euros to ETH using market price</span>
+          </li>
+          <li>
+            <a href="/usd-to-eth/"><strong>USD to ETH converter</strong></a>
+            <span>— Convert US dollars to ETH</span>
+          </li>
+          <li>
+            <a href="/gbp-to-eth/"><strong>GBP to ETH converter</strong></a>
+            <span>— Convert British pounds to ETH</span>
+          </li>
+          <li>
+            <a href="/jpy-to-eth/"><strong>JPY to ETH converter</strong></a>
+            <span>— Convert Japanese yen to ETH</span>
+          </li>
+          <li>
+            <a href="/cny-to-eth/"><strong>CNY to ETH converter</strong></a>
+            <span>— Convert Chinese yuan to ETH</span>
+          </li>
+        </ul>
+
+        <h3>Popular ETH amounts</h3>
+        <ul class="hub-list">
+          <li><a href="/0-01-eth-to-wei/">0.01 ETH to wei</a></li>
+          <li><a href="/0-1-eth-to-wei/">0.1 ETH to wei</a></li>
+          <li><a href="/1-eth-to-wei/">1 ETH to wei</a></li>
+          <li><a href="/2-eth-to-wei/">2 ETH to wei</a></li>
+        </ul>
+
+        <h3>Popular EUR amounts</h3>
+        <ul class="hub-list">
+          <li><a href="/10-eur-to-eth/">10 EUR to ETH</a></li>
+          <li><a href="/50-eur-to-eth/">50 EUR to ETH</a></li>
+          <li><a href="/100-eur-to-eth/">100 EUR to ETH</a></li>
+          <li><a href="/1000-eur-to-eth/">1000 EUR to ETH</a></li>
+        </ul>
+
+        <p class="note">
+          This page links to all available converters and helps search engines
+          discover and index them efficiently.
+        </p>
+      </div>
+
+      <!-- ABOUT -->
+      <section class="seo" id="about">
+        <h2>What is wei?</h2>
+        <p>
+          Wei is the smallest denomination of Ethereum.
+          Instead of dealing with tiny decimals like 0.00001234 ETH,
+          wei makes exact Ethereum amounts easier to represent.
+        </p>
+        <p>
+          This website provides simple tools to convert ETH or fiat currencies
+          into wei, using either fixed formulas or current market prices.
+        </p>
+      </section>
+
+      <!-- TRILEMMA -->
+      <section class="seo" id="trilemma">
+        <h2>Security, decentralization and scalability</h2>
+        <p>
+          Ethereum’s roadmap is often described with the “blockchain trilemma”:
+          security, decentralization, and scalability. The modern approach relies on
+          rollups (L2) plus better data availability on L1 (blobs / PeerDAS), with zk proofs
+          increasingly used for verification.
+        </p>
+        <p>
+          Read the dedicated page: <a href="/ethereum-trilemma/"><strong>Ethereum trilemma: how it’s being addressed</strong></a>.
+        </p>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <details>
+          <summary>How many wei are in one ETH?</summary>
+          <p>There are exactly 1,000,000,000,000,000,000 wei (1e18) in 1 ETH.</p>
+        </details>
+
+        <details>
+          <summary>Are fiat conversions real-time?</summary>
+          <p>Fiat conversions use the latest available ETH market price and provide estimated results.</p>
+        </details>
+
+        <details>
+          <summary>Is this ETH converter free?</summary>
+          <p>Yes. All converters on this website are free to use.</p>
+        </details>
+      </section>
 
       <footer class="footer">
-        <a href="/about.html">About</a><span>·</span>
-        <a href="/privacy.html">Privacy</a><span>·</span>
-        <a href="/contact.html">Contact</a>
+        <p>
+          © <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice
+        </p>
+        <p>
+          <a href="/privacy/">Privacy Policy</a> ·
+          <a href="/terms/">Terms</a> ·
+          <a href="/contact/">Contact</a> ·
+          <a href="/ethereum-trilemma/">Trilemma</a>
+        </p>
       </footer>
     </section>
-
   </main>
+
+  <script src="/app.js"></script>
 </body>
 </html>
