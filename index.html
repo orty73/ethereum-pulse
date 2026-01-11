@@ -4,22 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Ethereum Pulse – Live ETH Price, Gas Fees & Network Activity</title>
-  <meta name="description" content="Ethereum Pulse provides a clean and simple view of Ethereum: live ETH price, gas fees, network activity, and key on-chain data. Designed for everyone.">
+  <title>Ethereum Pulse – Live ETH Price (USD/BTC/CNY)</title>
+  <meta name="description" content="Ethereum Pulse shows the live Ethereum price in a clean neon interface. Tap to switch ETH/USD, ETH/BTC and ETH/CNY. Fast, SEO-friendly, and simple.">
   <link rel="canonical" href="https://ethereum-pulse.com/">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ethereum Pulse">
-  <meta property="og:title" content="Ethereum Pulse – Live ETH Price, Gas Fees & Network Activity">
-  <meta property="og:description" content="Track Ethereum live price, gas fees, and network activity with a clean and simple interface.">
+  <meta property="og:title" content="Ethereum Pulse – Live ETH Price (USD/BTC/CNY)">
+  <meta property="og:description" content="Live ETH price in a clean neon interface. Tap to switch USD/BTC/CNY.">
   <meta property="og:url" content="https://ethereum-pulse.com/">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ethereum Pulse – Live ETH Price, Gas Fees & Network Activity">
-  <meta name="twitter:description" content="Track Ethereum live price, gas fees, and network activity with a clean and simple interface.">
+  <meta name="twitter:title" content="Ethereum Pulse – Live ETH Price (USD/BTC/CNY)">
+  <meta name="twitter:description" content="Live ETH price in a clean neon interface. Tap to switch USD/BTC/CNY.">
 
   <link rel="stylesheet" href="styles.css">
 
@@ -31,7 +31,7 @@
     "@id": "https://ethereum-pulse.com/#website",
     "name": "Ethereum Pulse",
     "url": "https://ethereum-pulse.com/",
-    "description": "Ethereum Pulse provides a clean and simple view of Ethereum: live ETH price, gas fees, and network activity."
+    "description": "Ethereum Pulse shows the live Ethereum price in a clean neon interface. Tap to switch ETH/USD, ETH/BTC and ETH/CNY."
   }
   </script>
 
@@ -46,15 +46,15 @@
         "name": "What is Ethereum Pulse?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ethereum Pulse is a minimalist dashboard that shows essential Ethereum data such as live ETH price, gas fees, and network activity."
+          "text": "Ethereum Pulse is a minimalist page that displays the live Ethereum (ETH) price in a neon interface. Tap to switch between USD, BTC and CNY."
         }
       },
       {
         "@type": "Question",
-        "name": "Is Ethereum Pulse free to use?",
+        "name": "How often does the price update?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Ethereum Pulse is completely free and accessible to everyone."
+          "text": "Ethereum Pulse refreshes the price periodically and uses lightweight caching for speed."
         }
       },
       {
@@ -73,185 +73,114 @@
 </head>
 
 <body class="theme-neon">
-
   <!-- Background FX -->
-  <div class="fx fx-stars" aria-hidden="true"></div>
   <div class="fx fx-vignette" aria-hidden="true"></div>
+  <div class="fx fx-stars" aria-hidden="true"></div>
 
-  <main class="viewport" aria-label="Ethereum Pulse">
+  <main class="page">
 
     <!-- =========================
-         FACE A — Minimal Poster
+         HERO (Face A only)
          ========================= -->
-    <section class="face face-a" aria-label="ETH Snapshot">
-      <div class="a-top">
-        <div class="brand">
+    <section class="hero" aria-label="Live ETH price">
+      <div class="hero-top">
+        <div class="brand" aria-label="Ethereum Pulse">
           <span class="brand-dot" aria-hidden="true"></span>
           <span class="brand-name">Ethereum Pulse</span>
         </div>
-
-        <div class="netpill" aria-label="Network status">
-          <span class="netlabel">Network</span>
-          <span class="sep">·</span>
-          <span class="mono" id="gasGwei">--</span><span class="muted"> gwei</span>
-          <span class="sep">·</span>
-          <span class="mono" id="blockTime">--</span><span class="muted"> s</span>
-        </div>
       </div>
 
-      <div class="a-center">
-        <div class="a-eth" aria-hidden="true">
+      <!-- TAP AREA: whole diamond -->
+      <button class="diamondTap" id="diamondTap" type="button" aria-label="Tap to switch currency">
+        <div class="ethDiamond" aria-hidden="true">
           <div class="ethTop"></div>
           <div class="ethMid"></div>
           <div class="ethBot"></div>
         </div>
 
-        <button class="a-pricebar" id="priceTap" type="button" aria-label="Tap to change currency">
-          <span class="kicker" id="pairLabel">1 ETH =</span>
-          <span class="priceLine">
-            <span class="price" id="priceValue">—</span>
-            <span class="unit" id="priceUnit">USD</span>
-          </span>
-          <span class="hint">tap to switch USD · BTC · CNY</span>
-        </button>
-
-        <div class="a-meta">
-          <span class="pill" id="changePill">—</span>
-          <span class="muted" id="updatedAt">Updating…</span>
+        <!-- Price in the middle band -->
+        <div class="midBand" aria-live="polite">
+          <div class="midText">
+            <span class="midLeft" id="pairLabel">1 ETH =</span>
+            <span class="midValue mono" id="priceValue">—</span>
+            <span class="midUnit" id="priceUnit">USD</span>
+          </div>
         </div>
+
+        <div class="tapHint">tap to switch USD · BTC · CNY</div>
+      </button>
+
+      <div class="hero-meta">
+        <span class="pill" id="changePill">—</span>
+        <span class="muted" id="updatedAt">Updating…</span>
       </div>
 
-      <div class="scrollHint" aria-hidden="true">
+      <div class="scrollNudge" aria-hidden="true">
         <span class="chev"></span>
         <span class="chev"></span>
       </div>
     </section>
-
 
     <!-- =========================
-         FACE B — Radial Dashboard
+         SEO + internal links (below hero)
          ========================= -->
-    <section class="face face-b" aria-label="Ethereum Pulse Dashboard">
-
-      <div class="radialWrap" aria-label="Ethereum dashboard">
-        <div class="orbit orbit-1" aria-hidden="true"></div>
-        <div class="orbit orbit-2" aria-hidden="true"></div>
-        <div class="orbit orbit-3" aria-hidden="true"></div>
-
-        <!-- Center -->
-        <div class="centerCore">
-          <div class="centerEth" aria-hidden="true">
-            <div class="ethTop"></div>
-            <div class="ethMid"></div>
-            <div class="ethBot"></div>
-          </div>
-
-          <div class="centerPrice">
-            <div class="centerValue"><span id="priceBValue">—</span> <span id="priceBUnit">USD</span></div>
-            <div class="centerChange" id="changeB">—</div>
-          </div>
-        </div>
-
-        <!-- Top hex: Network -->
-        <div class="hex hex-top">
-          <div class="hexTitle">Network</div>
-          <div class="hexRow"><span class="muted">Gas</span> <span class="mono" id="gasGwei2">--</span><span class="muted"> gwei</span></div>
-          <div class="hexRow"><span class="muted">Block</span> <span class="mono" id="blockTime2">--</span><span class="muted"> s</span></div>
-        </div>
-
-        <!-- Left hex: Economy -->
-        <div class="hex hex-left">
-          <div class="hexTitle">Economy</div>
-          <div class="hexRow"><span class="muted">ETH / USD</span> <span class="mono" id="ethUsdMini">—</span></div>
-          <div class="hexRow"><span class="muted">24h</span> <span id="changeMini">—</span></div>
-        </div>
-
-        <!-- Right hex: Pairs -->
-        <div class="hex hex-right">
-          <div class="hexTitle">Pairs</div>
-          <div class="hexRow"><span class="muted">ETH / BTC</span> <span class="mono" id="ethBtc">—</span></div>
-          <div class="hexRow"><span class="muted">ETH / CNY</span> <span class="mono" id="ethCny">—</span></div>
-        </div>
-
-        <!-- Bottom hex: Ecosystem (placeholder) -->
-        <div class="hex hex-bottom">
-          <div class="hexTitle">Ecosystem</div>
-          <div class="hexRow"><span class="muted">DeFi</span> <span>—</span></div>
-          <div class="hexRow"><span class="muted">Staking</span> <span>—</span></div>
-        </div>
-      </div>
-
-      <!-- SEO CONTENT (kept, but below the radial UI) -->
-      <div class="seoWrap">
-        <header class="glass">
-          <h1>Ethereum Pulse</h1>
-          <h2>The simplest way to understand Ethereum</h2>
-          <p>
-            Ethereum Pulse is a minimalist dashboard designed to make Ethereum easy to understand.
-            It provides essential information such as the live ETH price, gas fees, and network activity,
-            without unnecessary complexity.
-          </p>
-        </header>
-
-        <section class="glass">
-          <h2>What is Ethereum Pulse?</h2>
-          <p>
-            Ethereum Pulse is a clean and accessible interface for anyone interested in Ethereum.
-            Whether you are new to crypto or already familiar with blockchain technology,
-            Ethereum Pulse focuses on what really matters.
-          </p>
-        </section>
-
-        <section class="glass">
-          <h2>Key Ethereum Data at a Glance</h2>
-          <ul>
-            <li>Live Ethereum (ETH) price</li>
-            <li>ETH to USD, BTC and other currency conversions</li>
-            <li>Current gas fees and network activity</li>
-            <li>Ethereum supply and on-chain indicators</li>
-          </ul>
-        </section>
-
-        <section class="glass internal-links">
-          <h2>Explore Ethereum in Detail</h2>
-          <ul>
-            <li><a href="/ethereum-price.html">Live Ethereum Price</a> – Track ETH price movements and market context.</li>
-            <li><a href="/ethereum-gas-fees.html">Ethereum Gas Fees Explained</a> – Understand transaction fees and congestion.</li>
-            <li><a href="/what-is-ethereum.html">What Is Ethereum?</a> – A simple explanation of how Ethereum works.</li>
-          </ul>
-        </section>
-
-        <section class="glass faq">
-          <h2>Frequently Asked Questions</h2>
-
-          <h3>What is Ethereum Pulse?</h3>
-          <p>Ethereum Pulse is a minimalist website that provides essential Ethereum data.</p>
-
-          <h3>Is Ethereum Pulse free to use?</h3>
-          <p>Yes, Ethereum Pulse is completely free.</p>
-
-          <h3>Is Ethereum Pulse affiliated with Ethereum?</h3>
-          <p>No, Ethereum Pulse is an independent project.</p>
-        </section>
-
-        <hr>
-
-        <p class="disclaimer">
-          Disclaimer: Content is for informational purposes only and does not constitute financial advice.
-          Crypto assets are volatile. Always do your own research.
+    <section class="content" aria-label="About Ethereum Pulse">
+      <header class="glass">
+        <h1>Ethereum Pulse</h1>
+        <h2>The simplest ETH price page</h2>
+        <p>
+          Ethereum Pulse is a minimalist page designed to show the Ethereum (ETH) price instantly.
+          Tap the ETH diamond to switch between ETH/USD, ETH/BTC and ETH/CNY.
+          Built to stay fast and SEO-friendly.
         </p>
+      </header>
 
-        <footer class="footer">
-          <a href="/about.html">About</a>
-          <span>·</span>
-          <a href="/privacy.html">Privacy</a>
-          <span>·</span>
-          <a href="/contact.html">Contact</a>
-        </footer>
+      <!-- Future AdSense slot (kept clean for CWV; add script later) -->
+      <div class="ad-slot" aria-label="Advertisement placeholder">
+        <div class="ad-inner">Ad slot (future AdSense)</div>
       </div>
 
-    </section>
-  </main>
+      <section class="glass">
+        <h2>Live Ethereum Price</h2>
+        <p>
+          The main value displayed above is the live ETH price. For more detail, use the pages below:
+          price analysis, gas fees, and beginner-friendly explanations.
+        </p>
+      </section>
 
+      <section class="glass internal-links">
+        <h2>Explore Ethereum</h2>
+        <ul>
+          <li><a href="/ethereum-price.html">Live Ethereum Price</a> – Price context and market overview.</li>
+          <li><a href="/ethereum-gas-fees.html">Ethereum Gas Fees</a> – Understand transaction costs and congestion.</li>
+          <li><a href="/what-is-ethereum.html">What Is Ethereum?</a> – A simple beginner explanation.</li>
+        </ul>
+      </section>
+
+      <section class="glass faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How do I switch currency?</h3>
+        <p>Tap the ETH diamond to cycle USD → BTC → CNY.</p>
+
+        <h3>Is this financial advice?</h3>
+        <p>No. This website is informational only. Crypto assets are volatile.</p>
+      </section>
+
+      <p class="disclaimer">
+        Disclaimer: Content is for informational purposes only and does not constitute financial advice.
+        Crypto assets are volatile. Always do your own research.
+      </p>
+
+      <footer class="footer">
+        <a href="/about.html">About</a>
+        <span>·</span>
+        <a href="/privacy.html">Privacy</a>
+        <span>·</span>
+        <a href="/contact.html">Contact</a>
+      </footer>
+    </section>
+
+  </main>
 </body>
 </html>
