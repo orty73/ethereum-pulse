@@ -1,11 +1,14 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home -->
   <url>
     <loc>https://ethereum-pulse.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- Converters -->
   <url>
     <loc>https://ethereum-pulse.com/eur-to-eth/</loc>
     <changefreq>hourly</changefreq>
@@ -44,7 +47,27 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Existing standalone pages (keep if they still exist and you want them indexed) -->
+  <!-- Existing site pages (keep if you want them indexed) -->
+  <url>
+    <loc>https://ethereum-pulse.com/ethereum-price.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ethereum-pulse.com/ethereum-gas-fees.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ethereum-pulse.com/what-is-ethereum.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ethereum-pulse.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
   <url>
     <loc>https://ethereum-pulse.com/about.html</loc>
     <changefreq>yearly</changefreq>
@@ -54,10 +77,5 @@
     <loc>https://ethereum-pulse.com/contact.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://ethereum-pulse.com/ethereum-gas-fees.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
