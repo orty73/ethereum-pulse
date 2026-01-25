@@ -1,21 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>1000 USD to ETH – Convert 1000 US Dollars to Ethereum</title>
-<meta name="description" content="Convert 1000 USD to Ethereum (ETH) using the latest ETH price. See ETH and wei value for 1000 US dollars.">
-<link rel="canonical" href="https://ethereum-pulse.com/1000-usd-to-eth">
-<link rel="stylesheet" href="/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>1000 USD to ETH – Convert 1000 US Dollars to Ethereum</title>
+  <meta name="description" content="Convert 1000 USD to Ethereum (ETH) using the latest ETH price. See the estimated ETH amount and wei value for 1000 US dollars." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://ethereum-pulse.com/1000-usd-to-eth" />
+
+  <meta property="og:title" content="1000 USD to ETH" />
+  <meta property="og:description" content="Convert 1000 USD to ETH and wei using the latest Ethereum price." />
+  <meta property="og:url" content="https://ethereum-pulse.com/1000-usd-to-eth" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
 <header class="wrap">
-<a class="brand" href="/">Ethereum Pulse</a>
-<nav class="nav">
-<a href="/usd-to-eth">USD to ETH</a>
-<a href="/#converters">Converters</a>
-</nav>
+  <a class="brand" href="/">Ethereum Pulse</a>
+  <nav class="nav">
+    <a href="/usd-to-eth">USD to ETH</a>
+    <a href="/#converters">Converters</a>
+  </nav>
 </header>
 
 <main class="wrap">
@@ -23,40 +31,68 @@
 <h1>1000 USD to ETH</h1>
 
 <p class="subtitle">
-Convert <strong>1000 USD</strong> into <strong>Ethereum (ETH)</strong> and <strong>wei</strong> using the current ETH price.
+Convert <strong>1000 US dollars (USD)</strong> into <strong>Ethereum (ETH)</strong> and <strong>wei</strong> using the latest market price.
 </p>
 
 <div class="card">
-<div class="row"><label>Amount</label><div class="fixed-currency">1000 USD</div></div>
+  <div class="row">
+    <label>Amount</label>
+    <div class="fixed-currency">1000 USD</div>
+  </div>
 
-<input id="amount" value="1000" style="display:none;">
-<select id="currency" disabled style="display:none;"><option value="usd" selected></option></select>
+  <input id="amount" value="1000" style="display:none;">
+  <select id="currency" disabled style="display:none;">
+    <option value="usd" selected>USD</option>
+  </select>
 
-<div class="results">
-<div class="result"><div class="k">ETH</div><div class="v" id="ethOut">—</div></div>
-<div class="result"><div class="k">Wei</div><div class="v" id="weiOut">—</div></div>
-</div>
+  <div class="results">
+    <div class="result"><div class="k">ETH</div><div class="v" id="ethOut">—</div></div>
+    <div class="result"><div class="k">Wei</div><div class="v" id="weiOut">—</div></div>
+  </div>
 
-<div class="actions">
-<button id="copyBtn">Copy</button>
-<button id="refreshBtn" class="secondary">Refresh</button>
-</div>
+  <div class="meta">
+    <div>Price source: <span id="sourceName">CoinGecko</span></div>
+    <div>Last update: <span id="lastUpdate">—</span></div>
+  </div>
+
+  <div class="actions">
+    <button id="copyBtn">Copy result</button>
+    <button id="refreshBtn" class="secondary">Refresh price</button>
+  </div>
+
+  <p class="note" id="statusNote" aria-live="polite"></p>
 </div>
 
 <section class="seo">
+<h2>1000 USD to ETH explained</h2>
 <p>
-This page estimates how much Ethereum you can buy with <strong>1000 USD</strong>.
-Large amounts are more sensitive to ETH price movements.
+This page estimates how much <strong>ETH</strong> you can get for <strong>1000 USD</strong> at the latest Ethereum price.
+Large amounts are more sensitive to price changes, so results are estimates.
+</p>
+<p>
+Back to the main converter: <a href="/usd-to-eth"><strong>USD to ETH converter</strong></a>.
 </p>
 </section>
 
+<section class="related">
+<h2>More USD conversions</h2>
+<ul>
+<li><a href="/10-usd-to-eth">10 USD to ETH</a></li>
+<li><a href="/50-usd-to-eth">50 USD to ETH</a></li>
+<li><a href="/100-usd-to-eth">100 USD to ETH</a></li>
+<li><a href="/usd-to-eth">USD to ETH (custom)</a></li>
+</ul>
+</section>
+
 <footer class="footer">
-<p>© <span id="year"></span> ethereum-pulse.com</p>
+<p>© <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice</p>
 </footer>
 </section>
 </main>
 
 <script src="/app.js" defer></script>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
