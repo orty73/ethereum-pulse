@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>USD to ETH Converter — Convert US Dollars to Ethereum</title>
-  <meta name="description" content="Convert US dollars (USD) to Ethereum (ETH) instantly using the current ETH price. Free USD to ETH converter." />
+  <title>USD to ETH Converter – Convert US Dollars to Ethereum (Live Price)</title>
+  <meta name="description" content="Convert USD to Ethereum (ETH) instantly using the latest ETH price. Get results in ETH and wei. Free USD to ETH converter with live market data." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://ethereum-pulse.com/usd-to-eth/" />
+  <link rel="canonical" href="https://ethereum-pulse.com/usd-to-eth" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="USD to ETH Converter — Convert US Dollars to Ethereum" />
-  <meta property="og:description" content="Convert US dollars (USD) to ETH instantly using real-time Ethereum prices." />
-  <meta property="og:url" content="https://ethereum-pulse.com/usd-to-eth/" />
+  <meta property="og:title" content="USD to ETH Converter – Convert US Dollars to Ethereum" />
+  <meta property="og:description" content="Convert USD to ETH instantly using the latest Ethereum price. Results in ETH and wei." />
+  <meta property="og:url" content="https://ethereum-pulse.com/usd-to-eth" />
   <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="/styles.css" />
@@ -23,10 +23,10 @@
     "@context":"https://schema.org",
     "@type":"WebApplication",
     "name":"USD to ETH Converter",
-    "url":"https://ethereum-pulse.com/usd-to-eth/",
+    "url":"https://ethereum-pulse.com/usd-to-eth",
     "applicationCategory":"FinanceApplication",
     "operatingSystem":"All",
-    "description":"Convert US dollars (USD) into Ethereum (ETH) and wei using real-time ETH prices."
+    "description":"Convert US dollars (USD) into Ethereum (ETH) and wei using the latest available ETH market price."
   }
   </script>
 
@@ -35,6 +35,11 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is USD to ETH conversion exact?",
+        "acceptedAnswer":{"@type":"Answer","text":"No. USD to ETH uses the latest available market price, so results are estimates and can change as the price moves."}
+      },
       {
         "@type":"Question",
         "name":"What is wei?",
@@ -48,17 +53,12 @@
       {
         "@type":"Question",
         "name":"Is the ETH price updated in real time?",
-        "acceptedAnswer":{"@type":"Answer","text":"This converter refreshes the ETH price periodically and uses the latest available market data from a public pricing API."}
+        "acceptedAnswer":{"@type":"Answer","text":"This converter uses the latest available ETH price from a public market data source and can be refreshed to update results."}
       },
       {
         "@type":"Question",
         "name":"Can I convert other currencies to ETH?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. You can use other pages like EUR to ETH, GBP to ETH, JPY to ETH, and CNY to ETH. Availability depends on the pricing API coverage."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is this ETH converter free?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. It is a free tool to quickly estimate ETH and wei amounts from fiat currencies."}
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. You can also use EUR to ETH, GBP to ETH, JPY to ETH, and CNY to ETH converters on this site."}
       }
     ]
   }
@@ -69,20 +69,23 @@
   <header class="wrap">
     <a class="brand" href="/">Ethereum Pulse</a>
     <nav class="nav">
+      <a href="/#converters">Converters</a>
+      <a href="/eth-to-wei">ETH to Wei</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
   <main class="wrap">
     <section class="hero">
-      <h1>USD to Ethereum (ETH) & Wei</h1>
+      <h1>USD to Ethereum (ETH) Converter</h1>
       <p class="subtitle">
-        Instantly convert US Dollar (USD) into <strong>ETH</strong> and <strong>wei</strong> using real-time market prices.
+        Convert <strong>US Dollar (USD)</strong> into <strong>Ethereum (ETH)</strong> and <strong>wei</strong> using the latest available market price.
+        Results are estimates and may change as the ETH price moves.
       </p>
 
       <div class="card">
         <div class="row">
-          <label for="amount">Amount</label>
+          <label for="amount">Amount (USD)</label>
           <input id="amount" inputmode="decimal" autocomplete="off" placeholder="100" value="100" />
         </div>
 
@@ -123,35 +126,48 @@
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
+      <!-- Keep ad placeholder for layout stability -->
       <div class="ad-slot" aria-label="Advertisement">
         <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
       </div>
 
       <section class="seo">
-        <h2>Convert USD to ETH</h2>
+        <h2>USD to ETH conversion explained</h2>
         <p>
-          This ETH converter helps you quickly estimate how much <strong>Ethereum (ETH)</strong> you get for a given amount in US dollars (USD).
-          Wei is the smallest unit of Ethereum: <strong>1 wei = 0.000000000000000001 ETH</strong>.
+          This page helps you estimate how much <strong>Ethereum (ETH)</strong> you can buy with a given amount of <strong>US dollars (USD)</strong>.
+          Because USD to ETH depends on the market price, results are <strong>estimates</strong> based on the latest available ETH price.
         </p>
         <p>
-          Prices move constantly, so results are estimates based on the latest available market price.
+          Want an exact conversion? ETH to wei is always fixed:
+          <a href="/eth-to-wei"><strong>ETH to Wei converter</strong></a>.
+        </p>
+
+        <h3>Formula</h3>
+        <p>
+          <strong>ETH = USD ÷ (ETH price in USD)</strong><br>
+          <strong>Wei = ETH × 1e18</strong>
         </p>
       </section>
 
       <section class="related">
         <h2>Other converters</h2>
         <ul>
-          <li><a href="/eur-to-eth/">EUR to ETH converter</a></li>
-          <li><a href="/gbp-to-eth/">GBP to ETH converter</a></li>
-          <li><a href="/jpy-to-eth/">JPY to ETH converter</a></li>
-          <li><a href="/cny-to-eth/">CNY to ETH converter</a></li>
-          <li><a href="/eth-to-wei/">ETH to wei converter</a></li>
-          <li><a href="/ethereum-trilemma/">Ethereum trilemma: security, decentralization, scalability</a></li>
+          <li><a href="/eur-to-eth">EUR to ETH converter</a></li>
+          <li><a href="/gbp-to-eth">GBP to ETH converter</a></li>
+          <li><a href="/jpy-to-eth">JPY to ETH converter</a></li>
+          <li><a href="/cny-to-eth">CNY to ETH converter</a></li>
+          <li><a href="/eth-to-wei">ETH to Wei converter</a></li>
+          <li><a href="/ethereum-trilemma">Ethereum trilemma: security, decentralization, scalability</a></li>
         </ul>
       </section>
 
       <section id="faq" class="faq">
         <h2>Frequently Asked Questions</h2>
+
+        <details>
+          <summary>Is USD to ETH conversion exact?</summary>
+          <p>No. USD to ETH uses a market price, so results are estimates and may change as the ETH price moves.</p>
+        </details>
 
         <details>
           <summary>What is wei?</summary>
@@ -165,17 +181,12 @@
 
         <details>
           <summary>Is the ETH price updated in real time?</summary>
-          <p>This tool refreshes pricing periodically and uses the latest available market data from a public pricing API.</p>
+          <p>This tool uses the latest available market data and you can refresh the price to update the estimate.</p>
         </details>
 
         <details>
           <summary>Can I convert other currencies to ETH?</summary>
-          <p>Yes — you can use EUR, GBP, JPY, and CNY pages. Availability depends on the pricing API coverage.</p>
-        </details>
-
-        <details>
-          <summary>Is this ETH converter free?</summary>
-          <p>Yes. It’s a free tool to quickly estimate ETH and wei amounts from fiat currencies.</p>
+          <p>Yes — use EUR, GBP, JPY, and CNY pages in the converter hub.</p>
         </details>
       </section>
 
@@ -183,10 +194,20 @@
         <p>
           © <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice
         </p>
+        <p>
+          <a href="/">Home</a> ·
+          <a href="/privacy">Privacy Policy</a> ·
+          <a href="/terms">Terms</a> ·
+          <a href="/contact">Contact</a>
+        </p>
       </footer>
     </section>
   </main>
 
   <script src="/app.js" defer></script>
+  <script>
+    const y = document.getElementById("year");
+    if (y) y.textContent = String(new Date().getFullYear());
+  </script>
 </body>
 </html>
