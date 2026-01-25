@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>ETH to Wei Converter — Exact Ethereum to Wei</title>
-  <meta name="description" content="Convert ETH to wei instantly using the exact formula. 1 ETH equals 1,000,000,000,000,000,000 wei (1e18). No API." />
+  <title>ETH to Wei Converter — Exact Ethereum to Wei (1e18)</title>
+  <meta name="description" content="Convert ETH to wei instantly using the exact formula. 1 ETH equals 1,000,000,000,000,000,000 wei (1e18). No API, no price feed." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://ethereum-pulse.com/eth-to-wei/" />
+  <link rel="canonical" href="https://ethereum-pulse.com/eth-to-wei" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="ETH to Wei Converter — Exact Ethereum to Wei" />
-  <meta property="og:description" content="Exact conversion: 1 ETH = 1,000,000,000,000,000,000 wei. No API." />
+  <meta property="og:description" content="Exact conversion: 1 ETH = 1,000,000,000,000,000,000 wei (1e18). No API, no price feed." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ethereum-pulse.com/eth-to-wei/" />
+  <meta property="og:url" content="https://ethereum-pulse.com/eth-to-wei" />
 
   <link rel="stylesheet" href="/styles.css" />
 
@@ -23,10 +23,10 @@
     "@context":"https://schema.org",
     "@type":"WebApplication",
     "name":"ETH to Wei Converter",
-    "url":"https://ethereum-pulse.com/eth-to-wei/",
+    "url":"https://ethereum-pulse.com/eth-to-wei",
     "applicationCategory":"FinanceApplication",
     "operatingSystem":"All",
-    "description":"Convert Ethereum (ETH) to wei using the exact formula (1 ETH = 1e18 wei). No pricing API."
+    "description":"Convert Ethereum (ETH) to wei using the exact formula (1 ETH = 1e18 wei). No pricing API, no market feed."
   }
   </script>
 
@@ -60,7 +60,7 @@
     <a class="brand" href="/">Ethereum Pulse</a>
     <nav class="nav">
       <a href="/#converters">Converters</a>
-      <a href="/ethereum-trilemma/">Trilemma</a>
+      <a href="/ethereum-trilemma">Trilemma</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
@@ -99,22 +99,34 @@
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
+      <section class="seo">
+        <h2>ETH to wei conversion explained</h2>
+        <p>
+          ETH to wei is a fixed unit conversion. Because <strong>wei is the smallest denomination of Ethereum</strong>,
+          the conversion is always exact. Multiply the ETH amount by <strong>10^18</strong> to get wei.
+        </p>
+        <p>
+          Looking for the opposite direction? This site focuses on ETH and fiat conversions. Use the converter hub to access other tools.
+          <a href="/#converters"><strong>Back to all converters</strong></a>.
+        </p>
+      </section>
+
       <section class="related">
         <h2>Popular ETH amounts to wei</h2>
         <ul>
-          <li><a href="/0-01-eth-to-wei/">0.01 ETH to wei</a></li>
-          <li><a href="/0-1-eth-to-wei/">0.1 ETH to wei</a></li>
-          <li><a href="/1-eth-to-wei/">1 ETH to wei</a></li>
-          <li><a href="/2-eth-to-wei/">2 ETH to wei</a></li>
+          <li><a href="/0-01-eth-to-wei">0.01 ETH to wei</a></li>
+          <li><a href="/0-1-eth-to-wei">0.1 ETH to wei</a></li>
+          <li><a href="/1-eth-to-wei">1 ETH to wei</a></li>
+          <li><a href="/2-eth-to-wei">2 ETH to wei</a></li>
         </ul>
 
         <h2>Fiat to ETH converters</h2>
         <ul>
-          <li><a href="/eur-to-eth/">EUR to ETH</a></li>
-          <li><a href="/usd-to-eth/">USD to ETH</a></li>
-          <li><a href="/gbp-to-eth/">GBP to ETH</a></li>
-          <li><a href="/jpy-to-eth/">JPY to ETH</a></li>
-          <li><a href="/cny-to-eth/">CNY to ETH</a></li>
+          <li><a href="/eur-to-eth">EUR to ETH</a></li>
+          <li><a href="/usd-to-eth">USD to ETH</a></li>
+          <li><a href="/gbp-to-eth">GBP to ETH</a></li>
+          <li><a href="/jpy-to-eth">JPY to ETH</a></li>
+          <li><a href="/cny-to-eth">CNY to ETH</a></li>
         </ul>
       </section>
 
@@ -139,6 +151,12 @@
 
       <footer class="footer">
         <p>© <span id="year"></span> ethereum-pulse.com · Exact conversion · Not financial advice</p>
+        <p>
+          <a href="/">Home</a> ·
+          <a href="/privacy">Privacy Policy</a> ·
+          <a href="/terms">Terms</a> ·
+          <a href="/contact">Contact</a>
+        </p>
       </footer>
     </section>
   </main>
@@ -170,8 +188,10 @@
 
     function ethToWeiBigInt(ethValue) {
       const s = ethValue.toFixed(18);
-      const [intPart, decPartRaw] = s.split(".");
-      const decPart = (decPartRaw || "").padEnd(18, "0").slice(0, 18);
+      const parts = s.split(".");
+      const intPart = parts[0] || "0";
+      const decPartRaw = parts[1] || "";
+      const decPart = decPartRaw.padEnd(18, "0").slice(0, 18);
       return BigInt(intPart) * WEI_PER_ETH + BigInt(decPart || "0");
     }
 
