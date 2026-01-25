@@ -18,7 +18,7 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org (WebApplication + FAQ) -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -39,7 +39,7 @@
       {
         "@type":"Question",
         "name":"Is GBP to ETH conversion exact?",
-        "acceptedAnswer":{"@type":"Answer","text":"No. GBP to ETH uses the latest available market price, so results are estimates and can change as the ETH price moves."}
+        "acceptedAnswer":{"@type":"Answer","text":"No. GBP to ETH uses a market price, so results are estimates and may change as the ETH price moves."}
       },
       {
         "@type":"Question",
@@ -54,12 +54,12 @@
       {
         "@type":"Question",
         "name":"Is the ETH price updated in real time?",
-        "acceptedAnswer":{"@type":"Answer","text":"This converter uses the latest available ETH price from a public market data source and can be refreshed to update results."}
+        "acceptedAnswer":{"@type":"Answer","text":"This tool uses the latest available ETH price from a public market data source and can be refreshed."}
       },
       {
         "@type":"Question",
         "name":"Can I convert other currencies to ETH?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. You can also use EUR to ETH, USD to ETH, JPY to ETH, and CNY to ETH converters on this site."}
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. You can also convert EUR, USD, JPY and CNY to ETH using other pages on this site."}
       }
     ]
   }
@@ -90,7 +90,6 @@
           <input id="amount" inputmode="decimal" autocomplete="off" placeholder="100" value="100" />
         </div>
 
-        <!-- Hidden select for JS (must have correct value) -->
         <div class="row" style="display:none;">
           <label for="currency">Currency</label>
           <select id="currency" disabled>
@@ -98,7 +97,6 @@
           </select>
         </div>
 
-        <!-- Visible fixed currency -->
         <div class="row">
           <label>Currency</label>
           <div class="fixed-currency">GBP — British Pound</div>
@@ -128,7 +126,6 @@
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
-      <!-- Keep ad placeholder for layout stability -->
       <div class="ad-slot" aria-label="Advertisement">
         <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
       </div>
@@ -137,11 +134,7 @@
         <h2>GBP to ETH conversion explained</h2>
         <p>
           This page helps you estimate how much <strong>Ethereum (ETH)</strong> you can buy with a given amount of <strong>British pounds (GBP)</strong>.
-          Because GBP to ETH depends on the market price, results are <strong>estimates</strong> based on the latest available ETH price.
-        </p>
-        <p>
-          Want an exact conversion? ETH to wei is always fixed:
-          <a href="/eth-to-wei"><strong>ETH to Wei converter</strong></a>.
+          Because GBP to ETH depends on the market price, results are <strong>estimates</strong>.
         </p>
 
         <h3>Formula</h3>
@@ -151,7 +144,16 @@
         </p>
       </section>
 
+      <!-- ✅ PROGRAMMATIC GBP LINKS -->
       <section class="related">
+        <h2>Popular GBP amounts to ETH</h2>
+        <ul>
+          <li><a href="/10-gbp-to-eth">10 GBP to ETH</a></li>
+          <li><a href="/50-gbp-to-eth">50 GBP to ETH</a></li>
+          <li><a href="/100-gbp-to-eth">100 GBP to ETH</a></li>
+          <li><a href="/1000-gbp-to-eth">1000 GBP to ETH</a></li>
+        </ul>
+
         <h2>Other converters</h2>
         <ul>
           <li><a href="/eur-to-eth">EUR to ETH converter</a></li>
@@ -168,37 +170,30 @@
 
         <details>
           <summary>Is GBP to ETH conversion exact?</summary>
-          <p>No. GBP to ETH uses a market price, so results are estimates and may change as the ETH price moves.</p>
+          <p>No. GBP to ETH uses a market price, so results are estimates.</p>
         </details>
 
         <details>
           <summary>What is wei?</summary>
-          <p>Wei is the smallest unit of Ethereum. 1 wei equals 0.000000000000000001 ETH (1e-18 ETH).</p>
+          <p>Wei is the smallest unit of Ethereum (1e-18 ETH).</p>
         </details>
 
         <details>
           <summary>How many wei are in one ETH?</summary>
-          <p>There are exactly 1,000,000,000,000,000,000 wei (1e18) in 1 ETH.</p>
+          <p>Exactly 1,000,000,000,000,000,000 wei.</p>
         </details>
 
         <details>
           <summary>Is the ETH price updated in real time?</summary>
-          <p>This tool uses the latest available market data and you can refresh the price to update the estimate.</p>
-        </details>
-
-        <details>
-          <summary>Can I convert other currencies to ETH?</summary>
-          <p>Yes — use EUR, USD, JPY, and CNY pages in the converter hub.</p>
+          <p>The price can be refreshed to get the latest available market data.</p>
         </details>
       </section>
 
       <footer class="footer">
-        <p>
-          © <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice
-        </p>
+        <p>© <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice</p>
         <p>
           <a href="/">Home</a> ·
-          <a href="/privacy">Privacy Policy</a> ·
+          <a href="/privacy">Privacy</a> ·
           <a href="/terms">Terms</a> ·
           <a href="/contact">Contact</a>
         </p>
