@@ -4,26 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>100 USD to ETH — Convert 100 US Dollars to Ethereum</title>
+  <title>100 USD to ETH – Convert 100 US Dollars to Ethereum (Live Price)</title>
   <meta name="description" content="Convert 100 USD to Ethereum (ETH) using the latest ETH price. See the estimated ETH amount and wei for 100 US dollars." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://ethereum-pulse.com/100-usd-to-eth/" />
+  <link rel="canonical" href="https://ethereum-pulse.com/100-usd-to-eth" />
 
-  <meta property="og:title" content="100 USD to ETH" />
-  <meta property="og:description" content="Convert 100 US dollars to ETH and wei using real-time ETH prices." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="100 USD to ETH – Convert 100 US Dollars to Ethereum" />
+  <meta property="og:description" content="Convert 100 USD to ETH and wei using the latest Ethereum price." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ethereum-pulse.com/100-usd-to-eth/" />
+  <meta property="og:url" content="https://ethereum-pulse.com/100-usd-to-eth" />
 
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Schema.org (FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is 100 USD to ETH conversion exact?",
+        "acceptedAnswer":{"@type":"Answer","text":"No. USD to ETH uses a market price, so the result is an estimate and changes as the ETH price moves."}
+      },
+      {
+        "@type":"Question",
+        "name":"How is 100 USD converted to wei?",
+        "acceptedAnswer":{"@type":"Answer","text":"First, USD is converted to ETH using the latest ETH price. Then wei is calculated as ETH × 1e18."}
+      },
+      {
+        "@type":"Question",
+        "name":"Where does the ETH price come from?",
+        "acceptedAnswer":{"@type":"Answer","text":"This page uses the latest available ETH market data provided by the same price source used across Ethereum Pulse (shown on the page)."}
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
   <header class="wrap">
     <a class="brand" href="/">Ethereum Pulse</a>
     <nav class="nav">
-      <a href="/usd-to-eth/">USD to ETH</a>
+      <a href="/usd-to-eth">USD to ETH</a>
       <a href="/#converters">Converters</a>
-      <a href="/ethereum-trilemma/">Trilemma</a>
+      <a href="/ethereum-trilemma">Trilemma</a>
     </nav>
   </header>
 
@@ -31,7 +57,8 @@
     <section class="hero">
       <h1>100 USD to ETH</h1>
       <p class="subtitle">
-        Convert <strong>100 US dollars (USD)</strong> into <strong>Ethereum (ETH)</strong> and <strong>wei</strong> using the latest market price.
+        Convert <strong>100 US dollars (USD)</strong> into <strong>Ethereum (ETH)</strong> and <strong>wei</strong> using the latest available market price.
+        Results are estimates and may change as the ETH price moves.
       </p>
 
       <div class="card">
@@ -40,6 +67,7 @@
           <div class="fixed-currency">100 USD</div>
         </div>
 
+        <!-- Inputs kept for app.js -->
         <input id="amount" value="100" style="display:none;" />
         <select id="currency" disabled style="display:none;">
           <option value="usd" selected>USD</option>
@@ -69,22 +97,69 @@
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
+      <section class="seo">
+        <h2>100 USD to ETH conversion explained</h2>
+        <p>
+          This page shows an estimate for converting <strong>100 USD to ETH</strong> using the latest available Ethereum price.
+          If the ETH price rises, 100 USD buys less ETH; if the price falls, 100 USD buys more ETH.
+        </p>
+        <p>
+          Prefer a custom amount? Use the main tool:
+          <a href="/usd-to-eth"><strong>USD to ETH converter</strong></a>.
+        </p>
+
+        <h3>Formula</h3>
+        <p>
+          <strong>ETH = 100 ÷ (ETH price in USD)</strong><br>
+          <strong>Wei = ETH × 1e18</strong>
+        </p>
+      </section>
+
       <section class="related">
         <h2>More USD to ETH conversions</h2>
         <ul>
-          <li><a href="/10-usd-to-eth/">10 USD to ETH</a></li>
-          <li><a href="/50-usd-to-eth/">50 USD to ETH</a></li>
-          <li><a href="/1000-usd-to-eth/">1000 USD to ETH</a></li>
-          <li><a href="/usd-to-eth/">USD to ETH converter (custom amount)</a></li>
+          <li><a href="/10-usd-to-eth">10 USD to ETH</a></li>
+          <li><a href="/50-usd-to-eth">50 USD to ETH</a></li>
+          <li><a href="/1000-usd-to-eth">1000 USD to ETH</a></li>
+          <li><a href="/usd-to-eth"><strong>USD to ETH converter</strong> (custom amount)</a></li>
         </ul>
+      </section>
+
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+
+        <details>
+          <summary>Is 100 USD to ETH conversion exact?</summary>
+          <p>No. USD to ETH uses a market price, so results are estimates and change as the price moves.</p>
+        </details>
+
+        <details>
+          <summary>How is 100 USD converted to wei?</summary>
+          <p>USD is converted to ETH using the latest price, then wei is calculated as ETH × 1e18.</p>
+        </details>
+
+        <details>
+          <summary>Where does the ETH price come from?</summary>
+          <p>This page uses the same price source shown on the page (e.g., CoinGecko) and updates when refreshed.</p>
+        </details>
       </section>
 
       <footer class="footer">
         <p>© <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice</p>
+        <p>
+          <a href="/">Home</a> ·
+          <a href="/privacy">Privacy Policy</a> ·
+          <a href="/terms">Terms</a> ·
+          <a href="/contact">Contact</a>
+        </p>
       </footer>
     </section>
   </main>
 
   <script src="/app.js" defer></script>
+  <script>
+    const y = document.getElementById("year");
+    if (y) y.textContent = String(new Date().getFullYear());
+  </script>
 </body>
 </html>
