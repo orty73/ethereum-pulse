@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ethereum-pulse.com/</loc></url>
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://ethereum-pulse.com/</loc>
+  </url>
 
   <!-- Core converters -->
-  <url><loc>https://ethereum-pulse.com/eth-to-wei/</loc></url>
-  <url><loc>https://ethereum-pulse.com/eur-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/usd-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/gbp-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/jpy-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/cny-to-eth/</loc></url>
+  <url><loc>https://ethereum-pulse.com/eth-to-wei</loc></url>
+  <url><loc>https://ethereum-pulse.com/eur-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/usd-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/gbp-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/jpy-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/cny-to-eth</loc></url>
 
-  <!-- Programmatic ETH->wei -->
-  <url><loc>https://ethereum-pulse.com/0-01-eth-to-wei/</loc></url>
-  <url><loc>https://ethereum-pulse.com/0-1-eth-to-wei/</loc></url>
-  <url><loc>https://ethereum-pulse.com/1-eth-to-wei/</loc></url>
-  <url><loc>https://ethereum-pulse.com/2-eth-to-wei/</loc></url>
+  <!-- Programmatic ETH -> Wei -->
+  <url><loc>https://ethereum-pulse.com/0-01-eth-to-wei</loc></url>
+  <url><loc>https://ethereum-pulse.com/0-1-eth-to-wei</loc></url>
+  <url><loc>https://ethereum-pulse.com/1-eth-to-wei</loc></url>
+  <url><loc>https://ethereum-pulse.com/2-eth-to-wei</loc></url>
 
   <!-- Programmatic EUR -->
-  <url><loc>https://ethereum-pulse.com/10-eur-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/50-eur-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/100-eur-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/1000-eur-to-eth/</loc></url>
+  <url><loc>https://ethereum-pulse.com/10-eur-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/50-eur-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/100-eur-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/1000-eur-to-eth</loc></url>
 
   <!-- Programmatic USD -->
-  <url><loc>https://ethereum-pulse.com/10-usd-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/50-usd-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/100-usd-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/1000-usd-to-eth/</loc></url>
+  <url><loc>https://ethereum-pulse.com/10-usd-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/50-usd-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/100-usd-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/1000-usd-to-eth</loc></url>
 
   <!-- Programmatic GBP -->
-  <url><loc>https://ethereum-pulse.com/10-gbp-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/50-gbp-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/100-gbp-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/1000-gbp-to-eth/</loc></url>
+  <url><loc>https://ethereum-pulse.com/10-gbp-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/50-gbp-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/100-gbp-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/1000-gbp-to-eth</loc></url>
 
-  <!-- Programmatic JPY (natural) -->
-  <url><loc>https://ethereum-pulse.com/1000-jpy-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/10000-jpy-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/100000-jpy-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/1000000-jpy-to-eth/</loc></url>
+  <!-- Programmatic JPY (natural values) -->
+  <url><loc>https://ethereum-pulse.com/1000-jpy-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/10000-jpy-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/100000-jpy-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/1000000-jpy-to-eth</loc></url>
 
-  <!-- Programmatic CNY (natural) -->
-  <url><loc>https://ethereum-pulse.com/100-cny-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/1000-cny-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/5000-cny-to-eth/</loc></url>
-  <url><loc>https://ethereum-pulse.com/10000-cny-to-eth/</loc></url>
+  <!-- Programmatic CNY (natural values) -->
+  <url><loc>https://ethereum-pulse.com/100-cny-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/1000-cny-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/5000-cny-to-eth</loc></url>
+  <url><loc>https://ethereum-pulse.com/10000-cny-to-eth</loc></url>
 
   <!-- Content -->
-  <url><loc>https://ethereum-pulse.com/ethereum-trilemma/</loc></url>
+  <url><loc>https://ethereum-pulse.com/ethereum-trilemma</loc></url>
 
-  <!-- Legal (optional) -->
-  <url><loc>https://ethereum-pulse.com/privacy/</loc></url>
-  <url><loc>https://ethereum-pulse.com/terms/</loc></url>
-  <url><loc>https://ethereum-pulse.com/contact/</loc></url>
+  <!-- Legal -->
+  <url><loc>https://ethereum-pulse.com/privacy</loc></url>
+  <url><loc>https://ethereum-pulse.com/terms</loc></url>
+  <url><loc>https://ethereum-pulse.com/contact</loc></url>
+
 </urlset>
