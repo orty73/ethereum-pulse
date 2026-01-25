@@ -4,87 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>1000 CNY to ETH — Convert 1000 Chinese Yuan to Ethereum</title>
-  <meta name="description" content="Convert 1000 CNY to Ethereum (ETH) using the latest ETH price. See the estimated ETH amount and wei for 1,000 Chinese yuan." />
+  <title>1000 CNY to ETH – Convert 1,000 Chinese Yuan to Ethereum</title>
+  <meta name="description" content="Convert 1000 CNY to Ethereum (ETH) using the latest ETH price. See the estimated ETH and wei value for 1,000 Chinese yuan." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://ethereum-pulse.com/1000-cny-to-eth/" />
+  <link rel="canonical" href="https://ethereum-pulse.com/1000-cny-to-eth" />
 
   <meta property="og:title" content="1000 CNY to ETH" />
-  <meta property="og:description" content="Convert 1,000 Chinese yuan to ETH and wei using real-time ETH prices." />
+  <meta property="og:description" content="Convert 1000 CNY to ETH and wei using the latest Ethereum price." />
+  <meta property="og:url" content="https://ethereum-pulse.com/1000-cny-to-eth" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ethereum-pulse.com/1000-cny-to-eth/" />
 
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
-  <header class="wrap">
-    <a class="brand" href="/">Ethereum Pulse</a>
-    <nav class="nav">
-      <a href="/cny-to-eth/">CNY to ETH</a>
-      <a href="/#converters">Converters</a>
-      <a href="/ethereum-trilemma/">Trilemma</a>
-    </nav>
-  </header>
+<header class="wrap">
+  <a class="brand" href="/">Ethereum Pulse</a>
+  <nav class="nav">
+    <a href="/cny-to-eth">CNY to ETH</a>
+    <a href="/#converters">Converters</a>
+  </nav>
+</header>
 
-  <main class="wrap">
-    <section class="hero">
-      <h1>1000 CNY to ETH</h1>
-      <p class="subtitle">
-        Convert <strong>1,000 Chinese yuan (CNY)</strong> into <strong>Ethereum (ETH)</strong> and <strong>wei</strong> using the latest market price.
-      </p>
+<main class="wrap">
+<section class="hero">
+<h1>1000 CNY to ETH</h1>
 
-      <div class="card">
-        <div class="row">
-          <label>Amount</label>
-          <div class="fixed-currency">1000 CNY</div>
-        </div>
+<p class="subtitle">
+Convert <strong>1,000 Chinese yuan (CNY)</strong> into <strong>Ethereum (ETH)</strong> and <strong>wei</strong>.
+</p>
 
-        <input id="amount" value="1000" style="display:none;" />
-        <select id="currency" disabled style="display:none;">
-          <option value="cny" selected>CNY</option>
-        </select>
+<div class="card">
+  <div class="row"><label>Amount</label><div class="fixed-currency">1000 CNY</div></div>
+  <input id="amount" value="1000" style="display:none;">
+  <select id="currency" disabled style="display:none;"><option value="cny" selected>CNY</option></select>
 
-        <div class="results">
-          <div class="result">
-            <div class="k">Ethereum (ETH)</div>
-            <div class="v" id="ethOut">—</div>
-          </div>
-          <div class="result">
-            <div class="k">Wei</div>
-            <div class="v" id="weiOut">—</div>
-          </div>
-        </div>
+  <div class="results">
+    <div class="result"><div class="k">ETH</div><div class="v" id="ethOut">—</div></div>
+    <div class="result"><div class="k">Wei</div><div class="v" id="weiOut">—</div></div>
+  </div>
 
-        <div class="meta">
-          <div>Price source: <span id="sourceName">CoinGecko</span></div>
-          <div>Last update: <span id="lastUpdate">—</span></div>
-        </div>
+  <div class="meta">
+    <div>Price source: <span id="sourceName">CoinGecko</span></div>
+    <div>Last update: <span id="lastUpdate">—</span></div>
+  </div>
 
-        <div class="actions">
-          <button id="copyBtn" type="button">Copy result</button>
-          <button id="refreshBtn" type="button" class="secondary">Refresh price</button>
-        </div>
+  <div class="actions">
+    <button id="copyBtn">Copy result</button>
+    <button id="refreshBtn" class="secondary">Refresh price</button>
+  </div>
+</div>
 
-        <p class="note" id="statusNote" aria-live="polite"></p>
-      </div>
+<section class="related">
+<h2>More CNY conversions</h2>
+<ul>
+  <li><a href="/100-cny-to-eth">100 CNY to ETH</a></li>
+  <li><a href="/5000-cny-to-eth">5,000 CNY to ETH</a></li>
+  <li><a href="/10000-cny-to-eth">10,000 CNY to ETH</a></li>
+  <li><a href="/cny-to-eth">CNY to ETH (custom)</a></li>
+</ul>
+</section>
 
-      <section class="related">
-        <h2>More CNY to ETH conversions</h2>
-        <ul>
-          <li><a href="/100-cny-to-eth/">100 CNY to ETH</a></li>
-          <li><a href="/5000-cny-to-eth/">5,000 CNY to ETH</a></li>
-          <li><a href="/10000-cny-to-eth/">10,000 CNY to ETH</a></li>
-          <li><a href="/cny-to-eth/">CNY to ETH converter (custom amount)</a></li>
-        </ul>
-      </section>
+<footer class="footer">
+<p>© <span id="year"></span> ethereum-pulse.com · Estimates only</p>
+</footer>
+</section>
+</main>
 
-      <footer class="footer">
-        <p>© <span id="year"></span> ethereum-pulse.com · Estimates only · Not financial advice</p>
-      </footer>
-    </section>
-  </main>
-
-  <script src="/app.js" defer></script>
+<script src="/app.js" defer></script>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>
